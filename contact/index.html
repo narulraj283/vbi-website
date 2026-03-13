@@ -1,379 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact VBI. Have questions about membership, services, or partnerships? Get in touch with our team.">
-  <meta name="keywords" content="veterinary business contact, VBI support, contact information">
-  <meta name="author" content="Veterinary Business Institute">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with the Veterinary Business Institute. Contact us about membership, partnerships, events, or general inquiries.">
+    <meta name="keywords" content="contact, veterinary business, membership support, partnership inquiries">
 
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content="Contact Us — VBI">
-  <meta property="og:description" content="Get in touch with the Veterinary Business Institute team. We're here to help.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vbi.narenlife.com/contact">
-  <meta property="og:image" content="https://vbi.narenlife.com/og-image.jpg">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Contact Us | Veterinary Business Institute">
+    <meta property="og:description" content="Let's talk. Reach out to VBI with questions, partnership inquiries, or membership support.">
+    <meta property="og:image" content="../assets/og-contact.jpg">
+    <meta property="og:url" content="https://vbi.narenlife.com//contact/">
 
-  <!-- Twitter Card Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact Us — VBI">
-  <meta name="twitter:description" content="Get in touch with the VBI team.">
-
-  <!-- Schema.org Contact Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Veterinary Business Institute",
-    "email": "team@veterinarybusinessinstitute.com",
-    "telephone": "(833) 523-1845",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "email": "team@veterinarybusinessinstitute.com",
-      "telephone": "(833) 523-1845"
-    }
-  }
-  </script>
-
-  <title>Contact Us — VBI</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="../css/style.css">
+    <title>Contact | Veterinary Business Institute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-      <a href="../" class="nav-logo">
-        <span style="font-size: 1.8rem;">🏥</span>
-        <div>
-          <div style="color: #2E7D32; font-weight: 700;">VBI</div>
-          <div class="nav-logo-text">Veterinary Business Institute</div>
+    <!-- Header -->
+    <header class="header sticky-header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/vbi-logo.svg" alt="Veterinary Business Institute">
+            </a>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="podcast.html">Podcast</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="#contact-form" class="cta-button">Send Message</a>
+
+            <button class="hamburger-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="../#podcast">Podcast</a></li>
-        <li><a href="../#resources">Resources</a></li>
-        <li><a href="../#events">Events</a></li>
-        <li><a href="../#membership">Membership</a></li>
-        <li><a href="../marketplace/">Marketplace</a></li>
-      </ul>
-      <button class="nav-cta">Start Free Trial</button>
-      <button class="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero" aria-label="Contact hero section">
-    <div class="hero-content">
-      <h1>Get in Touch</h1>
-      <p>Have questions? We'd love to hear from you.</p>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero hero-contact">
+        <div class="hero-content">
+            <h1>Let's Talk</h1>
+            <p class="hero-subtitle">Have a question, feedback, or partnership idea? We'd love to hear from you. Reach out anytime.</p>
+        </div>
+    </section>
 
-  <!-- Contact Form & Info -->
-  <section class="section white">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem;">
+    <!-- Contact Section -->
+    <section id="contact-form" class="contact-section">
+        <div class="container">
+            <div class="contact-layout">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h2>Send us a Message</h2>
 
-        <!-- Contact Form -->
-        <div>
-          <h2 style="color: #2E7D32; margin-bottom: 2rem;">Send us a Message</h2>
-          <form method="POST" action="#" style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <div class="form-group">
-              <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #1a1a2e;">Your Name</label>
-              <input type="text" id="name" name="name" required placeholder="John Doe" style="width: 100%; padding: 0.875rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; color: #1a1a2e; transition: all 0.3s ease;">
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required aria-label="Full Name" placeholder="Your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required aria-label="Email Address" placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" aria-label="Phone Number" placeholder="(555) 555-5555">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required aria-label="Subject">
+                                <option value="">Select a topic</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="membership">Membership Question</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="events">Events & Webinars</option>
+                                <option value="podcast">Podcast Guest Request</option>
+                                <option value="media">Media Inquiry</option>
+                                <option value="feedback">Feedback & Suggestions</option>
+                                <option value="support">Technical Support</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required aria-label="Message" placeholder="Tell us what's on your mind..." rows="7"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="subscribe" aria-label="Subscribe to newsletter">
+                                Add me to the VBI monthly newsletter
+                            </label>
+                        </div>
+
+                        <button type="submit" class="cta-button large">Send Message</button>
+                        <p class="form-note">We'll respond within 1-2 business days</p>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-wrapper">
+                    <h2>Contact Information</h2>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">✉️</div>
+                        <h3>Email</h3>
+                        <p>
+                            <a href="mailto:hello@veterinarybusinessinstitute.com">hello@veterinarybusinessinstitute.com</a>
+                        </p>
+                        <p class="info-note">For membership inquiries, partnership opportunities, and general questions</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">📞</div>
+                        <h3>Phone</h3>
+                        <p>
+                            <a href="tel:+18885551234">(888) 555-1234</a>
+                        </p>
+                        <p class="info-note">Monday—Friday, 9 AM—5 PM CT</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">🕐</div>
+                        <h3>Office Hours</h3>
+                        <p>Monday—Friday: 9 AM—5 PM CT<br>
+                        Saturday—Sunday: Closed</p>
+                        <p class="info-note">Outside office hours? Send an email and we'll get back to you ASAP.</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">🔗</div>
+                        <h3>Connect With Us</h3>
+                        <div class="social-links">
+                            <a href="#">LinkedIn</a>
+                            <a href="#">Facebook</a>
+                            <a href="#">Twitter</a>
+                            <a href="#">Instagram</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Our Location</h3>
+                        <p>Veterinary Business Institute<br>
+                        Part of Ekwa Marketing<br>
+                        Dallas, Texas</p>
+                        <p class="info-note">We serve veterinary practices nationwide and internationally</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Cards -->
+    <section class="quick-links-section">
+        <div class="container">
+            <h2>Quick Links</h2>
+            <p class="section-subtitle">Looking for something specific? Start here:</p>
+
+            <div class="quick-links-grid">
+                <a href="membership.html" class="quick-link-card">
+                    <div class="link-icon">👥</div>
+                    <h3>Become a Member</h3>
+                    <p>Explore membership plans and start your free trial today</p>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="partners.html" class="quick-link-card">
+                    <div class="link-icon">🤝</div>
+                    <h3>Become a Partner</h3>
+                    <p>Partner with VBI and reach 15,000+ practice owners</p>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="podcast.html" class="quick-link-card">
+                    <div class="link-icon">🎙️</div>
+                    <h3>Listen to Podcast</h3>
+                    <p>200+ episodes on practice growth, finance, and leadership</p>
+                    <span class="arrow">→</span>
+                </a>
+
+                <a href="events.html" class="quick-link-card">
+                    <div class="link-icon">📅</div>
+                    <h3>View Events</h3>
+                    <p>Upcoming workshops, masterclasses, and the annual summit</p>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section contact-faq">
+        <div class="container">
+            <h2>Common Questions</h2>
+            <p class="section-subtitle">Quick answers to help you find what you need</p>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFAQ(this)">
+                        <h3>How do I cancel my membership?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content" style="display: none;">
+                        <p>You can cancel anytime through your account settings in the VBI member portal. Just log in, go to Account > Billing, and select "Cancel Membership." You'll have access through the end of your current billing cycle. No penalties or early termination fees apply.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFAQ(this)">
+                        <h3>How do I reset my password?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content" style="display: none;">
+                        <p>On the login page, click "Forgot Password" and enter your email address. You'll receive a password reset link via email within a few minutes. Follow the link to create a new password. If you don't see the email, check your spam folder or contact us for help.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFAQ(this)">
+                        <h3>How long does the free trial last?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content" style="display: none;">
+                        <p>Paid membership tiers (Essentials, Growth, and Elite) include a 3-month free trial. You'll get full access to all tier benefits with no credit card required to start. After the trial ends, your membership converts to the regular monthly or annual rate unless you cancel.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFAQ(this)">
+                        <h3>Who can I speak with about partnership?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content" style="display: none;">
+                        <p>Partnership inquiries are handled by our Partnership team. You can reach out via the "Become a Partner" form on our Partners page, or email <a href="mailto:hello@veterinarybusinessinstitute.com">hello@veterinarybusinessinstitute.com</a> with "Partnership Inquiry" in the subject line. We'll connect you with the right person within 2-3 business days.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFAQ(this)">
+                        <h3>Can I be a guest on the podcast?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content" style="display: none;">
+                        <p>We're always looking for interesting guests—practice owners with unique stories, industry experts, and partners with valuable insights. Submit your interest using the contact form and select "Podcast Guest Request" as the subject, or email <a href="mailto:hello@veterinarybusinessinstitute.com">hello@veterinarybusinessinstitute.com</a> with podcast details about you or your company.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-header" onclick="toggleFAQ(this)">
+                        <h3>Do you offer refunds?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-content" style="display: none;">
+                        <p>Membership is non-refundable but cancellable anytime. If you cancel during a free trial, no charge applies. If you cancel after the trial, you'll have access through the end of your current billing cycle but won't receive a refund for the remaining time. Contact us if you have special circumstances—we're here to help.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Response Time CTA -->
+    <section class="response-cta">
+        <div class="container">
+            <h2>We're Here to Help</h2>
+            <p>Got a question? Don't wait—send us a message. We respond to all inquiries within 1-2 business days. For urgent issues, call us during office hours.</p>
+
+            <a href="#contact-form" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>About VBI</h4>
+                <p>The Veterinary Business Institute is a community platform for practice owners, managers, and veterinary professionals to learn, connect, save, and grow.</p>
             </div>
 
-            <div class="form-group">
-              <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #1a1a2e;">Email Address</label>
-              <input type="email" id="email" name="email" required placeholder="john@vetclinic.com" style="width: 100%; padding: 0.875rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; color: #1a1a2e; transition: all 0.3s ease;">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
             </div>
 
-            <div class="form-group">
-              <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #1a1a2e;">Subject</label>
-              <select id="subject" name="subject" required style="width: 100%; padding: 0.875rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; color: #1a1a2e; transition: all 0.3s ease;">
-                <option value="">Select a topic</option>
-                <option value="membership">Membership Question</option>
-                <option value="technical">Technical Support</option>
-                <option value="partnership">Partnership Opportunity</option>
-                <option value="feedback">Feedback</option>
-                <option value="other">Other</option>
-              </select>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="podcast.html">Podcast</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
             </div>
 
-            <div class="form-group">
-              <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #1a1a2e;">Message</label>
-              <textarea id="message" name="message" required placeholder="Tell us what you'd like to discuss..." style="width: 100%; padding: 0.875rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; color: #1a1a2e; resize: vertical; min-height: 150px; transition: all 0.3s ease;"></textarea>
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                </div>
+                <div class="newsletter-signup">
+                    <p>Get monthly insights</p>
+                    <form>
+                        <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
             </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-          </form>
         </div>
 
-        <!-- Contact Info -->
-        <div>
-          <h2 style="color: #2E7D32; margin-bottom: 2rem;">Contact Information</h2>
-
-          <!-- Email -->
-          <div style="margin-bottom: 2rem;">
-            <h3 style="color: #1a1a2e; margin-bottom: 0.75rem; font-size: 1.1rem;">Email</h3>
-            <a href="mailto:team@veterinarybusinessinstitute.com" style="color: #2E7D32; font-weight: 600; text-decoration: none; font-size: 1.1rem;">team@veterinarybusinessinstitute.com</a>
-            <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">We respond to all inquiries within 24 hours.</p>
-          </div>
-
-          <!-- Phone -->
-          <div style="margin-bottom: 2rem;">
-            <h3 style="color: #1a1a2e; margin-bottom: 0.75rem; font-size: 1.1rem;">Phone</h3>
-            <a href="tel:+18335231845" style="color: #2E7D32; font-weight: 600; text-decoration: none; font-size: 1.1rem;">(833) 523-1845</a>
-            <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;">Monday - Friday, 9:00 AM - 5:00 PM EST</p>
-          </div>
-
-          <!-- Office Location -->
-          <div style="margin-bottom: 2rem;">
-            <h3 style="color: #1a1a2e; margin-bottom: 0.75rem; font-size: 1.1rem;">Office Location</h3>
-            <p style="color: #666; margin: 0;">
-              Veterinary Business Institute<br>
-              Powered by Ekwa Marketing<br>
-              United States
-            </p>
-          </div>
-
-          <!-- Response Time -->
-          <div style="background: #f8faf8; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #2E7D32;">
-            <h3 style="color: #1a1a2e; margin-bottom: 0.5rem; font-size: 1rem;">Quick Response</h3>
-            <p style="color: #666; font-size: 0.9rem; margin: 0;">For urgent issues, please call us directly. For all other inquiries, email works great and you'll get a response within 24 hours.</p>
-          </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Veterinary Business Institute. A community by Ekwa Marketing.</p>
+            <div class="footer-links">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Social Media Section -->
-  <section class="section light">
-    <div class="container">
-      <h2 style="text-align: center; margin-bottom: 2rem;">Connect With Us</h2>
-      <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-        <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-decoration: none; transition: all 0.3s ease;">
-          <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #2E7D32, #4CAF50); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">in</div>
-          <span style="color: #1a1a2e; font-weight: 600;">LinkedIn</span>
-        </a>
-        <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-decoration: none; transition: all 0.3s ease;">
-          <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #2E7D32, #4CAF50); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">📷</div>
-          <span style="color: #1a1a2e; font-weight: 600;">Instagram</span>
-        </a>
-        <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-decoration: none; transition: all 0.3s ease;">
-          <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #2E7D32, #4CAF50); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">f</div>
-          <span style="color: #1a1a2e; font-weight: 600;">Facebook</span>
-        </a>
-        <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-decoration: none; transition: all 0.3s ease;">
-          <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #2E7D32, #4CAF50); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">▶</div>
-          <span style="color: #1a1a2e; font-weight: 600;">YouTube</span>
-        </a>
-        <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-decoration: none; transition: all 0.3s ease;">
-          <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #2E7D32, #4CAF50); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">♪</div>
-          <span style="color: #1a1a2e; font-weight: 600;">TikTok</span>
-        </a>
-      </div>
-    </div>
-  </section>
+    <script src="/js/main.js"></script>
+    <script>
+        function toggleFAQ(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.faq-icon');
 
-  <!-- FAQ Section -->
-  <section class="section white">
-    <div class="container">
-      <h2 style="text-align: center; margin-bottom: 3rem;">Common Questions</h2>
-      <div style="max-width: 700px; margin: 0 auto;">
-        <div class="accordion">
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>How do I cancel my membership?</span>
-              <div class="accordion-icon">▼</div>
-            </div>
-            <div class="accordion-body">
-              You can cancel your membership anytime from your account settings. No questions asked. Just email us if you need help!
-            </div>
-          </div>
+            document.querySelectorAll('.faq-content').forEach(item => {
+                if (item !== content) {
+                    item.style.display = 'none';
+                    item.previousElementSibling.querySelector('.faq-icon').textContent = '+';
+                }
+            });
 
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>I'm having technical issues with the website</span>
-              <div class="accordion-icon">▼</div>
-            </div>
-            <div class="accordion-body">
-              Please email team@veterinarybusinessinstitute.com with details about the issue, including your browser and device. We'll help you troubleshoot ASAP.
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Can I get a bulk discount for my team?</span>
-              <div class="accordion-icon">▼</div>
-            </div>
-            <div class="accordion-body">
-              Yes! We offer team and enterprise plans with custom pricing. Call us at (833) 523-1845 to discuss your needs.
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Are you hiring or looking for partnerships?</span>
-              <div class="accordion-icon">▼</div>
-            </div>
-            <div class="accordion-body">
-              We're always interested in connecting with talented people and businesses. Send us an email describing your opportunity at team@veterinarybusinessinstitute.com
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>How can I become a vendor partner?</span>
-              <div class="accordion-icon">▼</div>
-            </div>
-            <div class="accordion-body">
-              If your business serves veterinary practices, we'd love to explore a partnership! Email partnerships@veterinarybusinessinstitute.com with information about your services.
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Can I advertise with VBI?</span>
-              <div class="accordion-icon">▼</div>
-            </div>
-            <div class="accordion-body">
-              Yes, we offer sponsorship and advertising opportunities. Contact us at partnerships@veterinarybusinessinstitute.com for more information and rates.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section class="newsletter" aria-labelledby="newsletter-heading">
-    <div class="newsletter-container">
-      <h2 id="newsletter-heading">Get Smarter About Vet Business — Every Week</h2>
-      <p>One email. One big idea. One actionable tip for your practice.</p>
-      <form class="newsletter-form" method="POST" action="#" aria-label="Subscribe to newsletter">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          required
-          aria-label="Email address"
-        >
-        <button type="submit">Subscribe</button>
-      </form>
-      <p class="newsletter-disclaimer">Join 5,000+ subscribers. Unsubscribe anytime.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer role="contentinfo">
-    <div class="footer-container">
-      <!-- Column 1: About -->
-      <div class="footer-column">
-        <div class="footer-logo">
-          <span>VBI</span>
-        </div>
-        <p class="footer-description">
-          Transforming the veterinary industry by empowering practice owners with business education, community, and resources.
-        </p>
-        <div class="social-icons">
-          <a href="#" class="social-icon" aria-label="LinkedIn" title="LinkedIn">in</a>
-          <a href="#" class="social-icon" aria-label="Instagram" title="Instagram">📷</a>
-          <a href="#" class="social-icon" aria-label="YouTube" title="YouTube">▶</a>
-          <a href="#" class="social-icon" aria-label="Facebook" title="Facebook">f</a>
-          <a href="#" class="social-icon" aria-label="TikTok" title="TikTok">♪</a>
-        </div>
-      </div>
-
-      <!-- Column 2: Quick Links -->
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="/podcast">Podcast</a></li>
-          <li><a href="/resources">Resources</a></li>
-          <li><a href="/events">Events</a></li>
-          <li><a href="/membership">Membership</a></li>
-          <li><a href="/marketplace">Marketplace</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 3: Resources -->
-      <div class="footer-column">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Templates</a></li>
-          <li><a href="#">Guides</a></li>
-          <li><a href="#">Webinar Archive</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 4: Company -->
-      <div class="footer-column">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Accessibility</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div>© 2026 Veterinary Business Institute. All Rights Reserved.</div>
-      <div>Powered by <a href="#" style="color: #4CAF50;">Ekwa Marketing</a></div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="../js/main.js" defer></script>
-
-  <script>
-    // Accordion functionality
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', function() {
-        const item = this.parentElement;
-        item.classList.toggle('active');
-      });
-    });
-
-    // Form submission
-    document.querySelector('form')?.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Thank you for your message! We will get back to you within 24 hours.');
-      this.reset();
-    });
-
-    // Mobile menu toggle
-    document.querySelector('.hamburger')?.addEventListener('click', function() {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    });
-
-    // Focus styles for form inputs
-    document.querySelectorAll('input, textarea, select').forEach(input => {
-      input.addEventListener('focus', function() {
-        this.style.borderColor = '#2E7D32';
-        this.style.boxShadow = '0 0 0 3px rgba(46, 125, 50, 0.1)';
-      });
-      input.addEventListener('blur', function() {
-        this.style.boxShadow = 'none';
-      });
-    });
-  </script>
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                icon.textContent = '−';
+            } else {
+                content.style.display = 'none';
+                icon.textContent = '+';
+            }
+        }
+    </script>
 </body>
 </html>

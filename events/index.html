@@ -1,362 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Attend VBI webinars and events for veterinary practice owners. Expert speakers, live Q&A, and networking opportunities.">
-  <meta name="keywords" content="veterinary webinar, veterinary events, practice management training, veterinary education">
-  <meta name="author" content="Veterinary Business Institute">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join VBI events designed to drive practice growth. Webinars, masterclasses, meetups, and the annual summit for veterinary professionals.">
+    <meta name="keywords" content="veterinary events, webinars, workshops, networking, professional development">
 
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content="Events & Webinars — VBI">
-  <meta property="og:description" content="Join live webinars and events featuring industry experts. Build skills, network, and grow your practice.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vbi.narenlife.com/events">
-  <meta property="og:image" content="https://vbi.narenlife.com/og-image.jpg">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="VBI Events | Veterinary Business Institute">
+    <meta property="og:description" content="Events that drive real practice growth. Workshops, masterclasses, demo days, meetups, and the annual summit.">
+    <meta property="og:image" content="../assets/og-events.jpg">
+    <meta property="og:url" content="https://vbi.narenlife.com//events/">
 
-  <!-- Twitter Card Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Events & Webinars — VBI">
-  <meta name="twitter:description" content="Join VBI's live webinars with expert speakers and Q&A sessions.">
-
-  <!-- Schema.org Event Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "EventSeries",
-    "name": "VBI Webinars & Events",
-    "description": "Professional development events for veterinary practice owners",
-    "url": "https://vbi.narenlife.com/events"
-  }
-  </script>
-
-  <title>Events & Webinars — VBI</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="../css/style.css">
+    <title>Events | Veterinary Business Institute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-      <a href="../" class="nav-logo">
-        <span style="font-size: 1.8rem;">🏥</span>
-        <div>
-          <div style="color: #2E7D32; font-weight: 700;">VBI</div>
-          <div class="nav-logo-text">Veterinary Business Institute</div>
+    <!-- Header -->
+    <header class="header sticky-header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/vbi-logo.svg" alt="Veterinary Business Institute">
+            </a>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="events.html" class="active">Events</a></li>
+                    <li><a href="podcast.html">Podcast</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="#" class="cta-button">View Calendar</a>
+
+            <button class="hamburger-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="../#podcast">Podcast</a></li>
-        <li><a href="../#resources">Resources</a></li>
-        <li><a href="../#events">Events</a></li>
-        <li><a href="../#membership">Membership</a></li>
-        <li><a href="../marketplace/">Marketplace</a></li>
-      </ul>
-      <button class="nav-cta">Start Free Trial</button>
-      <button class="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero" aria-label="Events hero section">
-    <div class="hero-content">
-      <h1>Events & Webinars</h1>
-      <p>Learn from industry experts. Network with peers. Grow your practice.</p>
-      <div class="hero-buttons">
-        <a href="#upcoming" class="btn btn-primary">View Upcoming Events</a>
-        <a href="#schedule" class="btn btn-secondary">See Full Schedule</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Upcoming Events Section -->
-  <section class="section white" id="upcoming">
-    <div class="container">
-      <h2 style="text-align: center; margin-bottom: 3rem;">Upcoming Events</h2>
-      <div style="display: grid; gap: 2rem; margin-bottom: 3rem;">
-
-        <!-- Event 1 -->
-        <div class="event-card" style="background: white; border: 2px solid #f0f0f0; border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 150px 1fr; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); color: white; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-            <div style="font-size: 2rem; font-weight: 700;">15</div>
-            <div style="font-size: 0.85rem;">MAR 2026</div>
-            <div style="font-size: 0.75rem; opacity: 0.9;">2:00 PM ET</div>
-          </div>
-          <div style="padding: 2rem;">
-            <h3 style="color: #2E7D32; margin-bottom: 0.5rem;">Scaling to 7 Figures: The Path Forward</h3>
-            <p style="color: #666; margin-bottom: 1rem;">Learn how to take your veterinary practice from 6 to 7 figures. Expert panel discussion with practice owners who have done it.</p>
-            <div style="margin-bottom: 1.5rem;">
-              <p style="font-size: 0.9rem; color: #999; margin-bottom: 0.5rem;"><strong>Speakers:</strong></p>
-              <p style="font-size: 0.9rem; color: #666;">Dr. Sarah Martinez, Dr. James Wilson, Michael Chen</p>
+    <!-- Hero Section -->
+    <section class="hero hero-events">
+        <div class="hero-content">
+            <h1>Events That Drive Real Practice Growth</h1>
+            <p class="hero-subtitle">Connect with fellow practice owners, learn from industry experts, and discover solutions that transform how you run your business. Whether virtual or in-person, every event is designed with you in mind.</p>
+            <div class="hero-cta">
+                <a href="#upcoming" class="cta-button">See Upcoming Events</a>
+                <a href="#" class="cta-button secondary">View Full Calendar</a>
             </div>
-            <a href="#" class="btn btn-primary">Register Now</a>
-          </div>
         </div>
+    </section>
 
-        <!-- Event 2 -->
-        <div class="event-card" style="background: white; border: 2px solid #f0f0f0; border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 150px 1fr; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); color: white; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-            <div style="font-size: 2rem; font-weight: 700;">22</div>
-            <div style="font-size: 0.85rem;">MAR 2026</div>
-            <div style="font-size: 0.75rem; opacity: 0.9;">1:00 PM ET</div>
-          </div>
-          <div style="padding: 2rem;">
-            <h3 style="color: #2E7D32; margin-bottom: 0.5rem;">Employee Handbook & HR Compliance for Vet Practices</h3>
-            <p style="color: #666; margin-bottom: 1rem;">Protect your practice with proper HR policies and employee documentation. Don't get caught unprepared.</p>
-            <div style="margin-bottom: 1.5rem;">
-              <p style="font-size: 0.9rem; color: #999; margin-bottom: 0.5rem;"><strong>Speaker:</strong></p>
-              <p style="font-size: 0.9rem; color: #666;">Jennifer Lopez, Employment Law Specialist</p>
+    <!-- Featured Event -->
+    <section class="featured-event">
+        <div class="container">
+            <div class="featured-event-card">
+                <div class="featured-badge">FEATURED EVENT</div>
+
+                <h2>VBI Annual Summit 2026</h2>
+
+                <div class="event-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">📅 Date:</span>
+                        <span class="meta-value">October 15-17, 2026</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">📍 Location:</span>
+                        <span class="meta-value">San Diego, California</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">👥 Expected Attendees:</span>
+                        <span class="meta-value">800+ Practice Owners & Managers</span>
+                    </div>
+                </div>
+
+                <p class="featured-description">Join the largest gathering of independent veterinary practice owners and managers in the country. Three days of keynote sessions, breakout workshops, peer networking, and an exclusive partner showcase. Learn strategies for practice valuation, team building, financial management, technology integration, and sustainable growth from speakers who've been in your shoes.</p>
+
+                <div class="featured-highlights">
+                    <h3>Summit Highlights</h3>
+                    <ul>
+                        <li>Keynote talks from industry leaders and successful practice owners</li>
+                        <li>15+ concurrent breakout sessions on practice management, finance, HR, marketing, and more</li>
+                        <li>1-on-1 speed networking with fellow owners and key partners</li>
+                        <li>VIP cocktail reception and gala dinner</li>
+                        <li>Partner showcase with 50+ exhibitors and innovation demos</li>
+                        <li>Exclusive mastermind dinners for Growth and Elite members</li>
+                        <li>Access to recorded sessions for post-conference learning</li>
+                    </ul>
+                </div>
+
+                <div class="featured-cta">
+                    <a href="#" class="cta-button large">Register Now</a>
+                    <p class="cta-note">Early bird pricing available through June 30</p>
+                </div>
             </div>
-            <a href="#" class="btn btn-primary">Register Now</a>
-          </div>
         </div>
+    </section>
 
-        <!-- Event 3 -->
-        <div class="event-card" style="background: white; border: 2px solid #f0f0f0; border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 150px 1fr; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); color: white; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-            <div style="font-size: 2rem; font-weight: 700;">29</div>
-            <div style="font-size: 0.85rem;">MAR 2026</div>
-            <div style="font-size: 0.75rem; opacity: 0.9;">3:00 PM ET</div>
-          </div>
-          <div style="padding: 2rem;">
-            <h3 style="color: #2E7D32; margin-bottom: 0.5rem;">Mastering Veterinary Marketing in 2026</h3>
-            <p style="color: #666; margin-bottom: 1rem;">The latest marketing strategies that actually work for veterinary practices. Google, social media, and beyond.</p>
-            <div style="margin-bottom: 1.5rem;">
-              <p style="font-size: 0.9rem; color: #999; margin-bottom: 0.5rem;"><strong>Speaker:</strong></p>
-              <p style="font-size: 0.9rem; color: #666;">Naren Arulrajah, Founder of VBI</p>
+    <!-- Upcoming Events -->
+    <section id="upcoming" class="upcoming-events">
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <p class="section-subtitle">Mark your calendar for these valuable learning and networking opportunities</p>
+
+            <div class="events-grid">
+                <!-- Event 1 -->
+                <div class="event-card">
+                    <div class="event-type-badge workshop">Workshop</div>
+                    <h3>Reducing No-Shows by 30%</h3>
+                    <p class="event-description">Discover proven strategies to improve patient attendance, reduce cancellations, and increase your bottom line. This workshop covers confirmation systems, scheduling best practices, and client communication tactics.</p>
+
+                    <div class="event-details">
+                        <div class="detail">
+                            <span class="detail-icon">📅</span>
+                            <span>April 15, 2026</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">⏰</span>
+                            <span>2:00 PM - 3:30 PM ET</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">📍</span>
+                            <span>Virtual</span>
+                        </div>
+                    </div>
+
+                    <div class="event-host">
+                        Hosted by: Dr. Maria Rodriguez, Practice Owner & Operations Expert
+                    </div>
+
+                    <a href="#" class="event-button">Register Now</a>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="event-card">
+                    <div class="event-type-badge partner">Partner Demo Day</div>
+                    <h3>Partner Demo Day Q2</h3>
+                    <p class="event-description">Discover the latest innovations from our top partners. See live demonstrations of practice management software, marketing tools, staffing solutions, and more. Direct access to vendor experts for Q&A.</p>
+
+                    <div class="event-details">
+                        <div class="detail">
+                            <span class="detail-icon">📅</span>
+                            <span>May 8, 2026</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">⏰</span>
+                            <span>1:00 PM - 3:00 PM ET</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">📍</span>
+                            <span>Virtual</span>
+                        </div>
+                    </div>
+
+                    <div class="event-host">
+                        Featuring: 12 industry-leading partners
+                    </div>
+
+                    <a href="#" class="event-button">Register Now</a>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="event-card">
+                    <div class="event-type-badge masterclass">Masterclass</div>
+                    <h3>Reading Your P&L Like a CFO</h3>
+                    <p class="event-description">Master the financial statements that matter most. Learn to analyze profit and loss reports, identify cost drivers, spot opportunities, and make data-driven decisions about your practice. Perfect for owners and practice managers.</p>
+
+                    <div class="event-details">
+                        <div class="detail">
+                            <span class="detail-icon">📅</span>
+                            <span>May 20, 2026</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">⏰</span>
+                            <span>On-Demand</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">🎓</span>
+                            <span>60 minutes + workbook</span>
+                        </div>
+                    </div>
+
+                    <div class="event-host">
+                        Presented by: Financial advisor, VBI
+                    </div>
+
+                    <a href="#" class="event-button">Access Now</a>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="event-card">
+                    <div class="event-type-badge meetup">Regional Meetup</div>
+                    <h3>Regional Meetup: Southeast</h3>
+                    <p class="event-description">Connect face-to-face with fellow practice owners in your region. Share challenges, celebrate wins, discuss local market dynamics, and build relationships with peers. Light refreshments provided. Casual, networking-focused format.</p>
+
+                    <div class="event-details">
+                        <div class="detail">
+                            <span class="detail-icon">📅</span>
+                            <span>June 5, 2026</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">⏰</span>
+                            <span>6:00 PM - 8:00 PM ET</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">📍</span>
+                            <span>Atlanta, GA</span>
+                        </div>
+                    </div>
+
+                    <div class="event-host">
+                        For: Essentials, Growth, & Elite members
+                    </div>
+
+                    <a href="#" class="event-button">RSVP</a>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="event-card">
+                    <div class="event-type-badge workshop">Workshop</div>
+                    <h3>Building a Hiring System</h3>
+                    <p class="event-description">Solve your staffing challenges with a systematic approach to recruitment, onboarding, and retention. Learn job descriptions that attract quality candidates, interview techniques that work, and how to build a culture where people want to stay.</p>
+
+                    <div class="event-details">
+                        <div class="detail">
+                            <span class="detail-icon">📅</span>
+                            <span>June 17, 2026</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">⏰</span>
+                            <span>2:00 PM - 3:30 PM ET</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">📍</span>
+                            <span>Virtual</span>
+                        </div>
+                    </div>
+
+                    <div class="event-host">
+                        Hosted by: HR specialist & practice owner
+                    </div>
+
+                    <a href="#" class="event-button">Register Now</a>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="event-card">
+                    <div class="event-type-badge partner">Partner Demo Day</div>
+                    <h3>Partner Demo Day Q3</h3>
+                    <p class="event-description">The summer edition of our Partner Demo Day series. Explore the latest innovations in practice technology, staffing solutions, marketing tools, and business services. Special Q3 discounts from select partners.</p>
+
+                    <div class="event-details">
+                        <div class="detail">
+                            <span class="detail-icon">📅</span>
+                            <span>August 12, 2026</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">⏰</span>
+                            <span>1:00 PM - 3:00 PM ET</span>
+                        </div>
+                        <div class="detail">
+                            <span class="detail-icon">📍</span>
+                            <span>Virtual</span>
+                        </div>
+                    </div>
+
+                    <div class="event-host">
+                        Featuring: 15+ partners
+                    </div>
+
+                    <a href="#" class="event-button">Register Now</a>
+                </div>
             </div>
-            <a href="#" class="btn btn-primary">Register Now</a>
-          </div>
         </div>
+    </section>
 
-        <!-- Event 4 -->
-        <div class="event-card" style="background: white; border: 2px solid #f0f0f0; border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 150px 1fr; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); color: white; padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-            <div style="font-size: 2rem; font-weight: 700;">05</div>
-            <div style="font-size: 0.85rem;">APR 2026</div>
-            <div style="font-size: 0.75rem; opacity: 0.9;">2:30 PM ET</div>
-          </div>
-          <div style="padding: 2rem;">
-            <h3 style="color: #2E7D32; margin-bottom: 0.5rem;">The Business of Associate Management</h3>
-            <p style="color: #666; margin-bottom: 1rem;">Build a culture where associates thrive. Compensation, autonomy, and creating future practice owners.</p>
-            <div style="margin-bottom: 1.5rem;">
-              <p style="font-size: 0.9rem; color: #999; margin-bottom: 0.5rem;"><strong>Speaker:</strong></p>
-              <p style="font-size: 0.9rem; color: #666;">Dr. Patricia Brown, Practice Management Expert</p>
+    <!-- Event Types Explanation -->
+    <section class="event-types-section">
+        <div class="container">
+            <h2>Our Event Formats</h2>
+            <p class="section-subtitle">Designed to fit your schedule and learning style</p>
+
+            <div class="event-types-grid">
+                <div class="event-type-card">
+                    <div class="type-icon">🎓</div>
+                    <h3>Workshops</h3>
+                    <p><strong>60-90 minutes | Interactive | Monthly</strong></p>
+                    <p>Focused sessions on specific practice challenges. Expert-led with Q&A, practical takeaways, and downloadable resources. Perfect for busy owners who want actionable insights fast.</p>
+                </div>
+
+                <div class="event-type-card">
+                    <div class="type-icon">📚</div>
+                    <h3>Masterclasses</h3>
+                    <p><strong>60+ minutes | Deep Dive | On-Demand</strong></p>
+                    <p>Comprehensive courses on major topics like financial management, practice valuation, growth strategy, and leadership. Includes workbooks, templates, and lifetime access. Learn at your own pace.</p>
+                </div>
+
+                <div class="event-type-card">
+                    <div class="type-icon">🚀</div>
+                    <h3>Partner Demo Days</h3>
+                    <p><strong>2 hours | Live Demos | Quarterly</strong></p>
+                    <p>Discover innovative solutions from our vetted partners. See live software demos, ask questions directly with experts, and access exclusive Q3-Q4 discounts. Virtual format with chat support.</p>
+                </div>
+
+                <div class="event-type-card">
+                    <div class="type-icon">🤝</div>
+                    <h3>Regional Meetups</h3>
+                    <p><strong>2 hours | Networking | Quarterly</strong></p>
+                    <p>In-person gatherings for practice owners in your region. Build relationships with peers facing similar challenges. Casual, friendly format with light refreshments. Open to Growth & Elite members.</p>
+                </div>
+
+                <div class="event-type-card">
+                    <div class="type-icon">🏆</div>
+                    <h3>Annual Summit</h3>
+                    <p><strong>3 days | Comprehensive | October</strong></p>
+                    <p>The premier event for independent veterinary practice leaders. Keynotes, workshops, networking dinners, partner showcase, and exclusive mastermind groups. The largest gathering of practice owners.</p>
+                </div>
+
+                <div class="event-type-card">
+                    <div class="type-icon">🎯</div>
+                    <h3>Special Events</h3>
+                    <p><strong>Varies | Exclusive | Throughout the Year</strong></p>
+                    <p>Occasional specialized events including industry trend briefings, special guest speakers, roundtables on current topics, and Elite member-only gatherings. Announced in advance to members.</p>
+                </div>
             </div>
-            <a href="#" class="btn btn-primary">Register Now</a>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Past Events Section -->
-  <section class="section light">
-    <div class="container">
-      <h2 style="text-align: center; margin-bottom: 3rem;">On-Demand Webinar Recordings</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem;">
+    <!-- Member Access CTA -->
+    <section class="member-access-cta">
+        <div class="container">
+            <h2>Members Get Priority Access</h2>
+            <p class="section-subtitle">Exclusive benefits based on your membership tier</p>
 
-        <!-- Recording 1 -->
-        <div style="background: white; border-radius: 12px; overflow: hidden; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); padding: 2rem; color: white; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">▶</div>
-            <h3 style="margin: 0; color: white; font-size: 1.1rem;">Financial Benchmarking for Vets</h3>
-          </div>
-          <div style="padding: 1.5rem;">
-            <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">How to measure your practice's financial performance against industry standards.</p>
-            <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Watch Now</a>
-          </div>
+            <div class="member-benefits-grid">
+                <div class="benefit">
+                    <h3>Associate Members</h3>
+                    <ul>
+                        <li>Access select workshop replays</li>
+                        <li>Eventpass purchase for workshops ($19 each)</li>
+                        <li>Community networking at partner events</li>
+                    </ul>
+                </div>
+
+                <div class="benefit">
+                    <h3>Essentials Members</h3>
+                    <ul>
+                        <li>Unlimited access to all monthly workshops</li>
+                        <li>Partner Demo Days (live and on-demand)</li>
+                        <li>On-demand masterclass library access</li>
+                        <li>Early registration for annual summit</li>
+                    </ul>
+                </div>
+
+                <div class="benefit">
+                    <h3>Growth & Elite Members</h3>
+                    <ul>
+                        <li>Priority registration and seating</li>
+                        <li>Exclusive regional meetup access</li>
+                        <li>Private mastermind dinners at summit</li>
+                        <li>VIP networking opportunities</li>
+                        <li>Special speaker sessions (Growth & Elite only)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="access-cta">
+                <p>Ready to unlock member-only event access?</p>
+                <a href="membership.html" class="cta-button">Explore Membership Plans</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar CTA -->
+    <section class="calendar-section">
+        <div class="container">
+            <h2>Never Miss an Event</h2>
+            <p>Get the complete VBI events calendar delivered to your inbox every month, including early announcements and exclusive pre-registration opportunities.</p>
+
+            <form class="calendar-signup">
+                <input type="email" placeholder="your.email@example.com" required aria-label="Email for calendar">
+                <button type="submit" class="cta-button">Subscribe to Calendar</button>
+            </form>
+
+            <div class="calendar-formats">
+                <p>Available in:</p>
+                <a href="#">Google Calendar</a>
+                <a href="#">Outlook Calendar</a>
+                <a href="#">iCal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>About VBI</h4>
+                <p>The Veterinary Business Institute is a community platform for practice owners, managers, and veterinary professionals to learn, connect, save, and grow.</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="events.html">Events</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="podcast.html">Podcast</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                </div>
+                <div class="newsletter-signup">
+                    <p>Get monthly insights</p>
+                    <form>
+                        <input type="email" placeholder="Your email" required aria-label="Email for newsletter">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
         </div>
 
-        <!-- Recording 2 -->
-        <div style="background: white; border-radius: 12px; overflow: hidden; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); padding: 2rem; color: white; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">▶</div>
-            <h3 style="margin: 0; color: white; font-size: 1.1rem;">Client Communication Systems</h3>
-          </div>
-          <div style="padding: 1.5rem;">
-            <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Implement systems that keep clients informed and engaged at every touchpoint.</p>
-            <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Watch Now</a>
-          </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Veterinary Business Institute. A community by Ekwa Marketing.</p>
+            <div class="footer-links">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
         </div>
+    </footer>
 
-        <!-- Recording 3 -->
-        <div style="background: white; border-radius: 12px; overflow: hidden; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); padding: 2rem; color: white; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">▶</div>
-            <h3 style="margin: 0; color: white; font-size: 1.1rem;">Managing Seasonal Staffing</h3>
-          </div>
-          <div style="padding: 1.5rem;">
-            <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Strategies for managing staffing fluctuations throughout the year.</p>
-            <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Watch Now</a>
-          </div>
-        </div>
-
-        <!-- Recording 4 -->
-        <div style="background: white; border-radius: 12px; overflow: hidden; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); padding: 2rem; color: white; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">▶</div>
-            <h3 style="margin: 0; color: white; font-size: 1.1rem;">Building Your Brand Online</h3>
-          </div>
-          <div style="padding: 1.5rem;">
-            <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Create a professional online presence that attracts ideal clients to your practice.</p>
-            <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Watch Now</a>
-          </div>
-        </div>
-
-        <!-- Recording 5 -->
-        <div style="background: white; border-radius: 12px; overflow: hidden; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); padding: 2rem; color: white; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">▶</div>
-            <h3 style="margin: 0; color: white; font-size: 1.1rem;">Data Privacy & Compliance</h3>
-          </div>
-          <div style="padding: 1.5rem;">
-            <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Ensure your practice meets all data protection and privacy requirements.</p>
-            <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Watch Now</a>
-          </div>
-        </div>
-
-        <!-- Recording 6 -->
-        <div style="background: white; border-radius: 12px; overflow: hidden; transition: all 0.3s ease;">
-          <div style="background: linear-gradient(135deg, #2E7D32, #4CAF50); padding: 2rem; color: white; text-align: center;">
-            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">▶</div>
-            <h3 style="margin: 0; color: white; font-size: 1.1rem;">Debt Payoff Strategies</h3>
-          </div>
-          <div style="padding: 1.5rem;">
-            <p style="color: #666; margin-bottom: 1rem; font-size: 0.9rem;">Create a plan to pay off practice debt faster and build wealth.</p>
-            <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Watch Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Monthly Schedule Section -->
-  <section class="section white" id="schedule">
-    <div class="container">
-      <h2 style="text-align: center; margin-bottom: 3rem;">Webinar Schedule</h2>
-      <div style="max-width: 600px; margin: 0 auto; background: #f8faf8; padding: 2rem; border-radius: 12px;">
-        <h3 style="color: #2E7D32; margin-bottom: 1.5rem;">Every Month:</h3>
-        <ul style="list-style: none; margin: 0;">
-          <li style="padding: 1rem 0; border-bottom: 1px solid #ddd;"><strong>First Tuesday</strong> — Practice Management Deep Dive</li>
-          <li style="padding: 1rem 0; border-bottom: 1px solid #ddd;"><strong>Second Wednesday</strong> — Marketing & Growth Strategies</li>
-          <li style="padding: 1rem 0; border-bottom: 1px solid #ddd;"><strong>Third Thursday</strong> — Finance & Profitability</li>
-          <li style="padding: 1rem 0;"><strong>Fourth Friday</strong> — Leadership & Team Development</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="section light">
-    <div class="container" style="text-align: center;">
-      <h2>Never Miss an Event</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #666;">Join VBI and get exclusive access to live webinars, networking events, and member-only workshops.</p>
-      <a href="../membership/" class="btn btn-primary btn-large">Join VBI</a>
-      <p style="margin-top: 1rem; color: #999; font-size: 0.95rem;">All members get instant access to event recordings.</p>
-    </div>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section class="newsletter" aria-labelledby="newsletter-heading">
-    <div class="newsletter-container">
-      <h2 id="newsletter-heading">Get Smarter About Vet Business — Every Week</h2>
-      <p>One email. One big idea. One actionable tip for your practice.</p>
-      <form class="newsletter-form" method="POST" action="#" aria-label="Subscribe to newsletter">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          required
-          aria-label="Email address"
-        >
-        <button type="submit">Subscribe</button>
-      </form>
-      <p class="newsletter-disclaimer">Join 5,000+ subscribers. Unsubscribe anytime.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer role="contentinfo">
-    <div class="footer-container">
-      <!-- Column 1: About -->
-      <div class="footer-column">
-        <div class="footer-logo">
-          <span>VBI</span>
-        </div>
-        <p class="footer-description">
-          Transforming the veterinary industry by empowering practice owners with business education, community, and resources.
-        </p>
-        <div class="social-icons">
-          <a href="#" class="social-icon" aria-label="LinkedIn" title="LinkedIn">in</a>
-          <a href="#" class="social-icon" aria-label="Instagram" title="Instagram">📷</a>
-          <a href="#" class="social-icon" aria-label="YouTube" title="YouTube">▶</a>
-          <a href="#" class="social-icon" aria-label="Facebook" title="Facebook">f</a>
-          <a href="#" class="social-icon" aria-label="TikTok" title="TikTok">♪</a>
-        </div>
-      </div>
-
-      <!-- Column 2: Quick Links -->
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="/podcast">Podcast</a></li>
-          <li><a href="/resources">Resources</a></li>
-          <li><a href="/events">Events</a></li>
-          <li><a href="/membership">Membership</a></li>
-          <li><a href="/marketplace">Marketplace</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 3: Resources -->
-      <div class="footer-column">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Templates</a></li>
-          <li><a href="#">Guides</a></li>
-          <li><a href="#">Webinar Archive</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-
-      <!-- Column 4: Company -->
-      <div class="footer-column">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms</a></li>
-          <li><a href="#">Accessibility</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div>© 2026 Veterinary Business Institute. All Rights Reserved.</div>
-      <div>Powered by <a href="#" style="color: #4CAF50;">Ekwa Marketing</a></div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="../js/main.js" defer></script>
-
-  <script>
-    // Mobile menu toggle
-    document.querySelector('.hamburger')?.addEventListener('click', function() {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    });
-  </script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

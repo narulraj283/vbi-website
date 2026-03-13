@@ -1,537 +1,547 @@
-/* ===================================
-   VBI WEBSITE - MAIN JAVASCRIPT
-   Production-Quality, Vanilla JS
-   ==================================== */
+// ============================================================================
+// VBI Website - Main JavaScript
+// Handles functionality across all pages (responsive, accessible, performant)
+// ============================================================================
 
-/* ==================
-   UTILITY FUNCTIONS
-   ================== */
-
-/**
- * Debounce function to limit how often a function is called
- * @param {Function} func - Function to debounce
- * @param {number} wait - Wait time in milliseconds
- * @returns {Function} Debounced function
- */
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-/**
- * Throttle function to limit how often a function is called
- * @param {Function} func - Function to throttle
- * @param {number} limit - Time limit in milliseconds
- * @returns {Function} Throttled function
- */
-function throttle(func, limit) {
-  let inThrottle;
-  return function executedFunction(...args) {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-}
-
-/**
- * Add class to element
- * @param {HTMLElement} el - Element
- * @param {string} className - Class name to add
- */
-function addClass(el, className) {
-  if (el) el.classList.add(className);
-}
-
-/**
- * Remove class from element
- * @param {HTMLElement} el - Element
- * @param {string} className - Class name to remove
- */
-function removeClass(el, className) {
-  if (el) el.classList.remove(className);
-}
-
-/**
- * Toggle class on element
- * @param {HTMLElement} el - Element
- * @param {string} className - Class name to toggle
- */
-function toggleClass(el, className) {
-  if (el) el.classList.toggle(className);
-}
-
-/**
- * Check if element has class
- * @param {HTMLElement} el - Element
- * @param {string} className - Class name to check
- * @returns {boolean}
- */
-function hasClass(el, className) {
-  return el && el.classList.contains(className);
-}
-
-/* ==================
-   DOM INITIALIZATION
-   ================== */
-
-document.addEventListener('DOMContentLoaded', function () {
-  initNavigation();
-  initSmoothScroll();
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize all modules
+  initMobileNavigation();
+  initStickyHeader();
   initScrollAnimations();
-  initStickyNav();
-  initAccordion();
-  initTestimonialCarousel();
-  initStatsCounter();
-  initNewsletterForm();
+  initSmoothScroll();
+  initFAQAccordion();
   initPricingToggle();
+  initStatsCounter();
+  initTestimonialCarousel();
+  initFormHandling();
+  initAnnouncementBar();
+  initActiveNavLink();
   initBackToTopButton();
-  initMobileMenuClose();
+  initPartnerFilter();
+  initEventDateFormatting();
+  initNewsletterForm();
 });
 
-/* ==================
-   1. NAVIGATION MENU
-   ================== */
+// ============================================================================
+// 1. MOBILE NAVIGATION
+// ============================================================================
 
-let isMenuOpen = false;
+function initMobileNavigation() {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const body = document.body;
 
-function initNavigation() {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('nav ul');
+  if (!hamburger) return;
 
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', toggleMenu);
-  }
-}
-
-function toggleMenu() {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('nav ul');
-
-  if (!menuToggle || !navMenu) return;
-
-  isMenuOpen = !isMenuOpen;
-  toggleClass(menuToggle, 'active');
-  toggleClass(navMenu, 'active');
-}
-
-function closeMenu() {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('nav ul');
-
-  if (menuToggle && navMenu) {
-    removeClass(menuToggle, 'active');
-    removeClass(navMenu, 'active');
-    isMenuOpen = false;
-  }
-}
-
-function initMobileMenuClose() {
-  const navLinks = document.querySelectorAll('nav a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
+  // Toggle menu on hamburger click
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    body.classList.toggle('nav-open');
   });
-}
 
-/* ==================
-   2. SMOOTH SCROLL
-   ================== */
-
-function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-
-      if (target) {
-        const headerOffset = 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+  // Close menu when clicking a nav link
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      body.classList.remove('nav-open');
     });
   });
-}
 
-/* ==================
-   3. SCROLL ANIMATIONS
-   ================== */
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('nav') && !e.target.closest('.hamburger')) {
+      body.classList.remove('nav-open');
+    }
+  });
 
-function initScrollAnimations() {
-  // Create Intersection Observer for fade-in animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      body.classList.remove('nav-open');
+    }
+  });
+
+  // Prevent body scroll when menu is open
+  const observeNavState = () => {
+    const isNavOpen = body.classList.contains('nav-open');
+    body.style.overflow = isNavOpen ? 'hidden' : '';
   };
 
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        addClass(entry.target, 'visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  // Observe all elements with fade-in class
-  document.querySelectorAll('.fade-in, .card, .testimonial-card').forEach(el => {
-    observer.observe(el);
-  });
+  hamburger.addEventListener('click', observeNavState);
+  document.addEventListener('click', observeNavState);
 }
 
-/* ==================
-   4. STICKY NAVIGATION
-   ================== */
+// ============================================================================
+// 2. STICKY HEADER
+// ============================================================================
 
-function initStickyNav() {
+function initStickyHeader() {
   const header = document.querySelector('header');
-
   if (!header) return;
 
-  const scrollHandler = throttle(function () {
+  let ticking = false;
+  let lastScrollY = 0;
+
+  function updateHeaderState() {
     if (window.scrollY > 50) {
-      addClass(header, 'scrolled');
+      header.classList.add('scrolled');
     } else {
-      removeClass(header, 'scrolled');
+      header.classList.remove('scrolled');
     }
+    ticking = false;
+  }
 
-    // Update active nav link based on scroll position
-    updateActiveNavLink();
-  }, 100);
-
-  window.addEventListener('scroll', scrollHandler);
-}
-
-/**
- * Update active navigation link based on current scroll position
- */
-function updateActiveNavLink() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav a[href^="#"]');
-
-  let current = '';
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-
-    if (window.pageYOffset >= sectionTop - 200) {
-      current = section.getAttribute('id');
+  function onScroll() {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeaderState);
+      ticking = true;
     }
-  });
+  }
 
-  navLinks.forEach(link => {
-    removeClass(link, 'active');
-    if (link.getAttribute('href') === `#${current}`) {
-      addClass(link, 'active');
-    }
-  });
+  window.addEventListener('scroll', onScroll, { passive: true });
 }
 
-/* ==================
-   5. FAQ ACCORDION
-   ================== */
+// ============================================================================
+// 3. SCROLL ANIMATIONS (Intersection Observer)
+// ============================================================================
 
-function initAccordion() {
-  const accordionHeaders = document.querySelectorAll('.accordion-header');
+function initScrollAnimations() {
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  if (!elements.length) return;
 
-  accordionHeaders.forEach(header => {
-    header.addEventListener('click', toggleAccordion);
-  });
-}
-
-function toggleAccordion(e) {
-  const accordionItem = e.currentTarget.closest('.accordion-item');
-
-  if (!accordionItem) return;
-
-  // Close other items
-  const allItems = document.querySelectorAll('.accordion-item');
-  allItems.forEach(item => {
-    if (item !== accordionItem && hasClass(item, 'active')) {
-      removeClass(item, 'active');
-    }
-  });
-
-  // Toggle current item
-  toggleClass(accordionItem, 'active');
-}
-
-/* ==================
-   6. TESTIMONIAL CAROUSEL
-   ================== */
-
-let currentTestimonialIndex = 0;
-let testimonialAutoplayInterval;
-
-function initTestimonialCarousel() {
-  const testimonials = document.querySelectorAll('.testimonial-card');
-  const dots = document.querySelectorAll('.testimonial-dot');
-
-  if (testimonials.length === 0) return;
-
-  // Show first testimonial
-  showTestimonial(0);
-
-  // Add click handlers to dots
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      clearInterval(testimonialAutoplayInterval);
-      showTestimonial(index);
-      startTestimonialAutoplay();
-    });
-  });
-
-  // Start autoplay
-  startTestimonialAutoplay();
-}
-
-function showTestimonial(index) {
-  const testimonials = document.querySelectorAll('.testimonial-card');
-  const dots = document.querySelectorAll('.testimonial-dot');
-
-  if (testimonials.length === 0) return;
-
-  // Wrap around
-  currentTestimonialIndex = (index + testimonials.length) % testimonials.length;
-
-  // Remove active from all
-  testimonials.forEach(testimonial => removeClass(testimonial, 'active'));
-  dots.forEach(dot => removeClass(dot, 'active'));
-
-  // Add active to current
-  addClass(testimonials[currentTestimonialIndex], 'active');
-  addClass(dots[currentTestimonialIndex], 'active');
-}
-
-function startTestimonialAutoplay() {
-  const testimonials = document.querySelectorAll('.testimonial-card');
-
-  if (testimonials.length <= 1) return;
-
-  testimonialAutoplayInterval = setInterval(() => {
-    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-    showTestimonial(currentTestimonialIndex);
-  }, 5000); // Change every 5 seconds
-}
-
-/* ==================
-   7. STATS COUNTER
-   ================== */
-
-let statsAnimated = false;
-
-function initStatsCounter() {
-  const statsSection = document.querySelector('.stats-container');
-
-  if (!statsSection) return;
-
-  const observerOptions = {
-    threshold: 0.5
-  };
-
-  const observer = new IntersectionObserver(function (entries) {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !statsAnimated) {
-        animateStats();
-        statsAnimated = true;
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => {
+          entry.target.classList.add('animated');
+        }, parseInt(delay));
         observer.unobserve(entry.target);
       }
     });
-  }, observerOptions);
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
 
-  observer.observe(statsSection);
+  elements.forEach(element => {
+    observer.observe(element);
+  });
 }
 
-function animateStats() {
+// ============================================================================
+// 4. SMOOTH SCROLL
+// ============================================================================
+
+function initSmoothScroll() {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (href === '#') return;
+
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    const headerHeight = 80; // Sticky header height
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  });
+}
+
+// ============================================================================
+// 5. FAQ ACCORDION
+// ============================================================================
+
+function initFAQAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (!question) return;
+
+    question.addEventListener('click', () => {
+      const answer = item.querySelector('.faq-answer');
+      const icon = question.querySelector('.faq-icon');
+      const isActive = item.classList.contains('active');
+
+      // Close all other FAQs
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+          const otherAnswer = otherItem.querySelector('.faq-answer');
+          if (otherAnswer) {
+            otherAnswer.style.maxHeight = '0px';
+          }
+          const otherIcon = otherItem.querySelector('.faq-icon');
+          if (otherIcon) {
+            otherIcon.textContent = '+';
+          }
+        }
+      });
+
+      // Toggle current FAQ
+      if (isActive) {
+        item.classList.remove('active');
+        if (answer) {
+          answer.style.maxHeight = '0px';
+        }
+        if (icon) {
+          icon.textContent = '+';
+        }
+      } else {
+        item.classList.add('active');
+        if (answer) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+        if (icon) {
+          icon.textContent = '−';
+        }
+      }
+    });
+  });
+}
+
+// ============================================================================
+// 6. PRICING TOGGLE (Monthly/Annual)
+// ============================================================================
+
+function initPricingToggle() {
+  const toggle = document.querySelector('.pricing-toggle-switch');
+  if (!toggle) return;
+
+  const monthlyPrices = document.querySelectorAll('[data-price-monthly]');
+  const annualPrices = document.querySelectorAll('[data-price-annual]');
+  const savingsBadges = document.querySelectorAll('[data-savings]');
+
+  toggle.addEventListener('change', (e) => {
+    const isAnnual = e.target.checked;
+
+    monthlyPrices.forEach(element => {
+      element.style.display = isAnnual ? 'none' : 'inline';
+    });
+
+    annualPrices.forEach(element => {
+      element.style.display = isAnnual ? 'inline' : 'none';
+    });
+
+    savingsBadges.forEach(badge => {
+      badge.style.display = isAnnual ? 'inline-block' : 'none';
+    });
+  });
+}
+
+// ============================================================================
+// 7. STATS COUNTER ANIMATION
+// ============================================================================
+
+function initStatsCounter() {
   const statNumbers = document.querySelectorAll('.stat-number');
+  if (!statNumbers.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
 
   statNumbers.forEach(stat => {
-    const targetNumber = parseInt(stat.getAttribute('data-target') || stat.textContent);
-    const duration = 2000; // 2 seconds
-    const steps = 60;
-    const stepDuration = duration / steps;
-    const increment = targetNumber / steps;
-
-    let currentNumber = 0;
-
-    const counter = setInterval(() => {
-      currentNumber += increment;
-
-      if (currentNumber >= targetNumber) {
-        stat.textContent = targetNumber.toLocaleString();
-        clearInterval(counter);
-      } else {
-        stat.textContent = Math.floor(currentNumber).toLocaleString();
-      }
-    }, stepDuration);
+    observer.observe(stat);
   });
 }
 
-/* ==================
-   8. NEWSLETTER FORM
-   ================== */
+function animateCounter(element) {
+  const target = parseInt(element.dataset.target);
+  if (isNaN(target)) return;
 
-function initNewsletterForm() {
-  const forms = document.querySelectorAll('form[data-type="newsletter"]');
+  const duration = 2000;
+  const start = Date.now();
+  const startValue = 0;
+
+  function easeOutQuad(t) {
+    return t * (2 - t);
+  }
+
+  function update() {
+    const elapsed = Date.now() - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOutQuad(progress);
+    const current = Math.floor(startValue + (target - startValue) * eased);
+
+    let displayValue = current.toLocaleString();
+
+    // Restore prefix/suffix
+    const originalText = element.dataset.target;
+    if (originalText.includes('+')) {
+      displayValue += '+';
+    }
+    if (originalText.includes('%')) {
+      displayValue += '%';
+    }
+    if (originalText.startsWith('$')) {
+      displayValue = '$' + displayValue;
+    }
+
+    element.textContent = displayValue;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  update();
+}
+
+// ============================================================================
+// 8. TESTIMONIAL CAROUSEL
+// ============================================================================
+
+function initTestimonialCarousel() {
+  const carousel = document.querySelector('.testimonial-carousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.testimonial-slide');
+  const dots = carousel.querySelectorAll('.carousel-dot');
+  if (!slides.length) return;
+
+  let currentSlide = 0;
+  let autoPlayInterval;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    currentSlide = index;
+  }
+
+  function nextSlide() {
+    showSlide((currentSlide + 1) % slides.length);
+  }
+
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 5000);
+  }
+
+  function resetAutoPlay() {
+    clearInterval(autoPlayInterval);
+    startAutoPlay();
+  }
+
+  // Dot navigation
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+      resetAutoPlay();
+    });
+  });
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', () => {
+    clearInterval(autoPlayInterval);
+  });
+
+  carousel.addEventListener('mouseleave', startAutoPlay);
+
+  // Swipe support on mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    resetAutoPlay();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const threshold = 50;
+    if (touchStartX - touchEndX > threshold) {
+      nextSlide();
+    } else if (touchEndX - touchStartX > threshold) {
+      showSlide((currentSlide - 1 + slides.length) % slides.length);
+    }
+  }
+
+  // Initialize
+  startAutoPlay();
+}
+
+// ============================================================================
+// 9. FORM HANDLING
+// ============================================================================
+
+function initFormHandling() {
+  const forms = document.querySelectorAll('form:not(.newsletter-form)');
+  if (!forms.length) return;
 
   forms.forEach(form => {
-    form.addEventListener('submit', handleNewsletterSubmit);
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!validateForm(form)) return;
+
+      // Show success message
+      const successMessage = document.createElement('div');
+      successMessage.className = 'form-success-message';
+      successMessage.innerHTML = '✓ Thank you! We\'ll be in touch soon.';
+      form.appendChild(successMessage);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        form.reset();
+        successMessage.remove();
+      }, 3000);
+    });
   });
 }
 
-function handleNewsletterSubmit(e) {
-  e.preventDefault();
+function validateForm(form) {
+  let isValid = true;
+  const inputs = form.querySelectorAll('[required]');
 
-  const form = e.currentTarget;
-  const emailInput = form.querySelector('input[type="email"]');
-  const submitButton = form.querySelector('button[type="submit"]');
+  inputs.forEach(input => {
+    const errorElement = input.nextElementSibling;
+    input.classList.remove('error');
 
-  // Validation
-  if (!emailInput || !emailInput.value) {
-    showValidationError(emailInput, 'Please enter your email address');
-    return;
-  }
+    if (!input.value.trim()) {
+      showError(input, 'This field is required');
+      isValid = false;
+    } else if (input.type === 'email' && !isValidEmail(input.value)) {
+      showError(input, 'Please enter a valid email');
+      isValid = false;
+    } else {
+      // Remove error message if it exists
+      if (errorElement?.classList.contains('error-message')) {
+        errorElement.remove();
+      }
+    }
+  });
 
-  if (!isValidEmail(emailInput.value)) {
-    showValidationError(emailInput, 'Please enter a valid email address');
-    return;
-  }
-
-  // Clear previous errors
-  clearValidationError(emailInput);
-
-  // Disable button and show loading state
-  if (submitButton) {
-    const originalText = submitButton.textContent;
-    submitButton.disabled = true;
-    submitButton.textContent = 'Subscribing...';
-
-    // Simulate API call
-    setTimeout(() => {
-      submitButton.disabled = false;
-      submitButton.textContent = originalText;
-
-      // Show success message
-      showToast('success', 'Subscription Successful', 'Thank you for subscribing to our newsletter!');
-
-      // Reset form
-      form.reset();
-    }, 1000);
-  }
+  return isValid;
 }
 
-/**
- * Validate email format
- * @param {string} email - Email to validate
- * @returns {boolean}
- */
 function isValidEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-/**
- * Show validation error
- * @param {HTMLElement} input - Input element
- * @param {string} message - Error message
- */
-function showValidationError(input, message) {
-  addClass(input, 'input-error');
+function showError(input, message) {
+  input.classList.add('error');
 
-  let errorEl = input.parentElement.querySelector('.form-error');
-  if (!errorEl) {
-    errorEl = document.createElement('div');
-    errorEl.className = 'form-error';
-    input.parentElement.appendChild(errorEl);
+  // Remove existing error message if present
+  const existingError = input.nextElementSibling;
+  if (existingError?.classList.contains('error-message')) {
+    existingError.remove();
   }
-  errorEl.textContent = message;
+
+  const errorElement = document.createElement('div');
+  errorElement.className = 'error-message';
+  errorElement.textContent = message;
+  input.parentNode.insertBefore(errorElement, input.nextSibling);
 }
 
-/**
- * Clear validation error
- * @param {HTMLElement} input - Input element
- */
-function clearValidationError(input) {
-  removeClass(input, 'input-error');
-  const errorEl = input.parentElement.querySelector('.form-error');
-  if (errorEl) {
-    errorEl.remove();
+// ============================================================================
+// 10. ANNOUNCEMENT BAR
+// ============================================================================
+
+function initAnnouncementBar() {
+  const announcementBar = document.querySelector('.announcement-bar');
+  if (!announcementBar) return;
+
+  const dismissBtn = announcementBar.querySelector('.announcement-close');
+  if (!dismissBtn) return;
+
+  // Check if already dismissed in this session
+  if (sessionStorage.getItem('announcementDismissed')) {
+    announcementBar.style.display = 'none';
+    updateBodyPadding();
+    return;
+  }
+
+  dismissBtn.addEventListener('click', () => {
+    announcementBar.style.display = 'none';
+    sessionStorage.setItem('announcementDismissed', 'true');
+    updateBodyPadding();
+  });
+
+  function updateBodyPadding() {
+    if (announcementBar.style.display === 'none') {
+      document.body.style.paddingTop = '0';
+    }
   }
 }
 
-/* ==================
-   9. PRICING TOGGLE
-   ================== */
+// ============================================================================
+// 11. ACTIVE NAV LINK
+// ============================================================================
 
-function initPricingToggle() {
-  const toggleSwitch = document.querySelector('.toggle-switch');
+function initActiveNavLink() {
+  const navLinks = document.querySelectorAll('.nav-links a');
+  if (!navLinks.length) return;
 
-  if (!toggleSwitch) return;
+  const currentPath = window.location.pathname;
+  const currentFileName = currentPath.split('/').pop() || 'index.html';
 
-  toggleSwitch.addEventListener('click', handlePricingToggle);
-}
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    const linkFileName = href.split('/').pop() || 'index.html';
 
-function handlePricingToggle(e) {
-  const toggleSwitch = e.currentTarget;
-  const isAnnual = hasClass(toggleSwitch, 'active');
-
-  toggleClass(toggleSwitch, 'active');
-
-  // Update pricing cards
-  const pricingCards = document.querySelectorAll('.pricing-card');
-  pricingCards.forEach(card => {
-    const price = card.querySelector('.pricing-price');
-    const period = card.querySelector('.pricing-period');
-
-    if (price && period) {
-      // Get annual and monthly prices from data attributes
-      const monthlyPrice = price.getAttribute('data-monthly') || '0';
-      const annualPrice = price.getAttribute('data-annual') || '0';
-
-      if (isAnnual) {
-        // Switch to monthly
-        price.textContent = '$' + monthlyPrice;
-        period.textContent = 'per month';
-      } else {
-        // Switch to annual
-        price.textContent = '$' + annualPrice;
-        period.textContent = 'per year';
+    if (href === '/' || href === '/index.html' || href === 'index.html') {
+      if (currentFileName === '' || currentFileName === 'index.html') {
+        link.classList.add('active');
       }
+    } else if (href.includes(linkFileName) || currentFileName.includes(linkFileName)) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
   });
 }
 
-/* ==================
-   10. BACK TO TOP
-   ================== */
+// ============================================================================
+// 12. BACK TO TOP BUTTON
+// ============================================================================
 
 function initBackToTopButton() {
   const backToTopBtn = document.querySelector('.back-to-top');
-
   if (!backToTopBtn) return;
 
-  window.addEventListener('scroll', throttle(function () {
-    if (window.pageYOffset > 300) {
-      addClass(backToTopBtn, 'show');
-    } else {
-      removeClass(backToTopBtn, 'show');
-    }
-  }, 100));
+  let ticking = false;
 
-  backToTopBtn.addEventListener('click', function () {
+  function updateButtonVisibility() {
+    if (window.scrollY > 500) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateButtonVisibility);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  backToTopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -539,421 +549,138 @@ function initBackToTopButton() {
   });
 }
 
-/* ==================
-   11. TOAST NOTIFICATIONS
-   ================== */
+// ============================================================================
+// 13. PARTNER CATEGORY FILTER
+// ============================================================================
 
-/**
- * Show toast notification
- * @param {string} type - Type: 'success', 'error', 'info'
- * @param {string} title - Toast title
- * @param {string} message - Toast message
- * @param {number} duration - Duration in milliseconds (default: 4000)
- */
-function showToast(type = 'info', title = '', message = '', duration = 4000) {
-  const toast = document.createElement('div');
-  toast.className = `toast ${type}`;
+function initPartnerFilter() {
+  const filterButtons = document.querySelectorAll('.partner-filter-btn');
+  const partnerCards = document.querySelectorAll('.partner-card');
 
-  let icon = 'ℹ️';
-  if (type === 'success') icon = '✓';
-  if (type === 'error') icon = '✕';
+  if (!filterButtons.length || !partnerCards.length) return;
 
-  toast.innerHTML = `
-    <div class="toast-icon">${icon}</div>
-    <div class="toast-content">
-      ${title ? `<h4>${title}</h4>` : ''}
-      <p>${message}</p>
-    </div>
-  `;
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.category;
 
-  document.body.appendChild(toast);
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
 
-  // Auto remove after duration
-  setTimeout(() => {
-    toast.style.animation = 'slideOutRight 0.3s ease forwards';
-    setTimeout(() => {
-      toast.remove();
-    }, 300);
-  }, duration);
-}
+      // Filter cards with fade animation
+      partnerCards.forEach(card => {
+        const cardCategory = card.dataset.category;
+        const shouldShow = category === 'all' || cardCategory === category;
 
-/* ==================
-   12. MODAL HANDLING
-   ================== */
-
-/**
- * Show modal
- * @param {string} modalId - Modal element ID
- */
-function showModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (modal) {
-    addClass(modal, 'active');
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-/**
- * Hide modal
- * @param {string} modalId - Modal element ID
- */
-function hideModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (modal) {
-    removeClass(modal, 'active');
-    document.body.style.overflow = 'auto';
-  }
-}
-
-/**
- * Initialize modal close handlers
- */
-function initModals() {
-  // Close on background click
-  document.querySelectorAll('.modal').forEach(modal => {
-    modal.addEventListener('click', function (e) {
-      if (e.target === this) {
-        hideModal(this.id);
-      }
-    });
-  });
-
-  // Close on close button click
-  document.querySelectorAll('.modal-close').forEach(closeBtn => {
-    closeBtn.addEventListener('click', function () {
-      const modal = this.closest('.modal');
-      if (modal) {
-        hideModal(modal.id);
-      }
-    });
-  });
-}
-
-document.addEventListener('DOMContentLoaded', initModals);
-
-/* ==================
-   13. FORM VALIDATION
-   ================== */
-
-/**
- * Generic form validation
- * @param {HTMLElement} form - Form element
- * @returns {boolean} - Returns true if form is valid
- */
-function validateForm(form) {
-  let isValid = true;
-
-  // Check required fields
-  form.querySelectorAll('[required]').forEach(field => {
-    if (!field.value.trim()) {
-      showValidationError(field, `${field.name || 'This field'} is required`);
-      isValid = false;
-    } else {
-      clearValidationError(field);
-    }
-  });
-
-  // Check email fields
-  form.querySelectorAll('input[type="email"]').forEach(field => {
-    if (field.value && !isValidEmail(field.value)) {
-      showValidationError(field, 'Please enter a valid email address');
-      isValid = false;
-    }
-  });
-
-  return isValid;
-}
-
-/* ==================
-   14. PODCAST PLAYER
-   ================== */
-
-/**
- * Initialize podcast player
- */
-function initPodcastPlayer() {
-  const playButtons = document.querySelectorAll('.play-button');
-
-  playButtons.forEach(btn => {
-    btn.addEventListener('click', togglePodcastPlay);
-  });
-
-  // Progress bar scrubbing
-  const progressBars = document.querySelectorAll('.progress-bar');
-  progressBars.forEach(bar => {
-    bar.addEventListener('click', scrubPodcast);
-  });
-}
-
-function togglePodcastPlay(e) {
-  const btn = e.currentTarget;
-  const player = btn.closest('.podcast-player');
-
-  if (!player) return;
-
-  // Toggle button state
-  btn.classList.toggle('playing');
-
-  // Update button text/icon
-  if (hasClass(btn, 'playing')) {
-    btn.textContent = '⏸';
-  } else {
-    btn.textContent = '▶';
-  }
-
-  // In a real application, you would control audio playback here
-  console.log('Podcast player toggled');
-}
-
-function scrubPodcast(e) {
-  const progressBar = e.currentTarget;
-  const rect = progressBar.getBoundingClientRect();
-  const percent = (e.clientX - rect.left) / rect.width;
-
-  const fill = progressBar.querySelector('.progress-fill');
-  if (fill) {
-    fill.style.width = (percent * 100) + '%';
-  }
-
-  // In a real application, you would update audio playback here
-}
-
-document.addEventListener('DOMContentLoaded', initPodcastPlayer);
-
-/* ==================
-   15. RESOURCE FILTERS
-   ================== */
-
-/**
- * Initialize resource filtering
- */
-function initResourceFilters() {
-  const filterTags = document.querySelectorAll('.tag[data-filter]');
-  const resourceItems = document.querySelectorAll('.resource-item');
-
-  filterTags.forEach(tag => {
-    tag.addEventListener('click', handleResourceFilter);
-  });
-
-  function handleResourceFilter(e) {
-    const selectedTag = e.currentTarget;
-    const filterValue = selectedTag.getAttribute('data-filter');
-
-    // Update active state
-    filterTags.forEach(tag => removeClass(tag, 'active'));
-    addClass(selectedTag, 'active');
-
-    // Filter resources
-    resourceItems.forEach(item => {
-      const itemType = item.getAttribute('data-type');
-
-      if (filterValue === 'all' || itemType === filterValue) {
-        addClass(item, 'visible');
-        removeClass(item, 'hidden');
-      } else {
-        removeClass(item, 'visible');
-        addClass(item, 'hidden');
-      }
-    });
-  }
-}
-
-document.addEventListener('DOMContentLoaded', initResourceFilters);
-
-/* ==================
-   16. EVENT CALENDAR
-   ================== */
-
-/**
- * Initialize event calendar/list
- */
-function initEventCalendar() {
-  const eventCards = document.querySelectorAll('.event-card');
-
-  eventCards.forEach(card => {
-    card.addEventListener('mouseenter', highlightEvent);
-    card.addEventListener('mouseleave', unhighlightEvent);
-  });
-}
-
-function highlightEvent(e) {
-  const eventCard = e.currentTarget;
-  addClass(eventCard, 'highlighted');
-}
-
-function unhighlightEvent(e) {
-  const eventCard = e.currentTarget;
-  removeClass(eventCard, 'highlighted');
-}
-
-document.addEventListener('DOMContentLoaded', initEventCalendar);
-
-/* ==================
-   17. LAZY LOADING
-   ================== */
-
-/**
- * Initialize lazy loading for images
- */
-function initLazyLoading() {
-  const images = document.querySelectorAll('img[data-src]');
-
-  if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.src = img.getAttribute('data-src');
-          img.removeAttribute('data-src');
-          observer.unobserve(img);
+        if (shouldShow) {
+          card.style.display = '';
+          setTimeout(() => {
+            card.classList.add('fade-in');
+          }, 10);
+        } else {
+          card.classList.remove('fade-in');
+          card.style.display = 'none';
         }
       });
     });
-
-    images.forEach(img => imageObserver.observe(img));
-  } else {
-    // Fallback for older browsers
-    images.forEach(img => {
-      img.src = img.getAttribute('data-src');
-      img.removeAttribute('data-src');
-    });
-  }
+  });
 }
 
-document.addEventListener('DOMContentLoaded', initLazyLoading);
+// ============================================================================
+// 14. EVENT DATE FORMATTING
+// ============================================================================
 
-/* ==================
-   18. SEARCH FUNCTIONALITY
-   ================== */
+function initEventDateFormatting() {
+  const eventDates = document.querySelectorAll('[data-event-date]');
+  if (!eventDates.length) return;
 
-/**
- * Initialize search functionality
- */
-function initSearch() {
-  const searchInput = document.querySelector('[data-search]');
-  const searchableElements = document.querySelectorAll('[data-searchable]');
+  eventDates.forEach(element => {
+    const dateStr = element.dataset.eventDate;
+    const eventDate = new Date(dateStr);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
-  if (!searchInput) return;
+    const diffTime = eventDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  searchInput.addEventListener('input', debounce(function (e) {
-    const query = e.target.value.toLowerCase().trim();
+    let badge = '';
 
-    if (!query) {
-      searchableElements.forEach(el => removeClass(el, 'hidden'));
-      return;
+    if (diffDays === 0) {
+      badge = 'Today';
+    } else if (diffDays === 1) {
+      badge = 'Tomorrow';
+    } else if (diffDays > 1 && diffDays <= 7) {
+      badge = 'This week';
+    } else if (diffDays > 0) {
+      badge = `${diffDays} days away`;
     }
 
-    searchableElements.forEach(el => {
-      const text = el.textContent.toLowerCase();
-      if (text.includes(query)) {
-        removeClass(el, 'hidden');
-      } else {
-        addClass(el, 'hidden');
-      }
-    });
-  }, 300));
-}
-
-document.addEventListener('DOMContentLoaded', initSearch);
-
-/* ==================
-   19. WINDOW RESIZE HANDLER
-   ================== */
-
-/**
- * Handle window resize events
- */
-window.addEventListener('resize', debounce(function () {
-  // Close mobile menu on resize to desktop
-  if (window.innerWidth > 767) {
-    closeMenu();
-  }
-}, 200));
-
-/* ==================
-   20. KEYBOARD SHORTCUTS
-   ================== */
-
-/**
- * Initialize keyboard shortcuts
- */
-function initKeyboardShortcuts() {
-  document.addEventListener('keydown', function (e) {
-    // Escape key closes modal and menu
-    if (e.key === 'Escape') {
-      closeMenu();
-      document.querySelectorAll('.modal.active').forEach(modal => {
-        hideModal(modal.id);
-      });
-    }
-
-    // Ctrl/Cmd + K opens search (if implemented)
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-      e.preventDefault();
-      const searchInput = document.querySelector('[data-search]');
-      if (searchInput) {
-        searchInput.focus();
-      }
+    if (badge) {
+      const badgeElement = document.createElement('span');
+      badgeElement.className = 'event-date-badge';
+      badgeElement.textContent = badge;
+      element.appendChild(badgeElement);
     }
   });
 }
 
-document.addEventListener('DOMContentLoaded', initKeyboardShortcuts);
+// ============================================================================
+// 15. NEWSLETTER FORM
+// ============================================================================
 
-/* ==================
-   21. PERFORMANCE OPTIMIZATION
-   ================== */
+function initNewsletterForm() {
+  const newsletterForm = document.querySelector('.newsletter-form');
+  if (!newsletterForm) return;
 
-/**
- * Preload critical resources
- */
-function preloadResources() {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'style';
-  link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap';
-  document.head.appendChild(link);
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const emailInput = newsletterForm.querySelector('input[type="email"]');
+    if (!emailInput) return;
+
+    const email = emailInput.value.trim();
+
+    if (!email) {
+      showNewsletterError(emailInput, 'Please enter your email');
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      showNewsletterError(emailInput, 'Please enter a valid email');
+      return;
+    }
+
+    // Clear any previous errors
+    emailInput.classList.remove('error');
+    const existingError = emailInput.parentElement.querySelector('.error-message');
+    if (existingError) {
+      existingError.remove();
+    }
+
+    // Show success message
+    const successMessage = document.createElement('div');
+    successMessage.className = 'newsletter-success-message';
+    successMessage.textContent = '✓ Thank you for subscribing!';
+    newsletterForm.appendChild(successMessage);
+
+    emailInput.value = '';
+
+    setTimeout(() => {
+      successMessage.remove();
+    }, 3000);
+  });
 }
 
-document.addEventListener('DOMContentLoaded', preloadResources);
+function showNewsletterError(input, message) {
+  input.classList.add('error');
 
-/* ==================
-   22. ERROR HANDLING
-   ================== */
+  const existingError = input.parentElement.querySelector('.error-message');
+  if (existingError) {
+    existingError.remove();
+  }
 
-/**
- * Global error handler
- */
-window.addEventListener('error', function (e) {
-  console.error('Global error:', e.error);
-  // In production, you might send this to an error tracking service
-});
-
-/**
- * Unhandled promise rejection handler
- */
-window.addEventListener('unhandledrejection', function (e) {
-  console.error('Unhandled promise rejection:', e.reason);
-  // In production, you might send this to an error tracking service
-});
-
-/* ==================
-   23. EXPORT FUNCTIONS FOR GLOBAL USE
-   ================== */
-
-// Export utility functions for use in HTML
-window.VBI = {
-  showToast,
-  showModal,
-  hideModal,
-  validateForm,
-  isValidEmail,
-  addClass,
-  removeClass,
-  toggleClass,
-  hasClass,
-  debounce,
-  throttle
-};
-
-console.log('VBI JavaScript initialized successfully');
+  const errorElement = document.createElement('div');
+  errorElement.className = 'error-message';
+  errorElement.textContent = message;
+  input.parentElement.appendChild(errorElement);
+}
