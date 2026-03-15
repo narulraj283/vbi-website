@@ -12,7 +12,7 @@ The VBI site is a complete 114-file static HTML site on GitHub Pages that needs 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Baseline Deployment** - Push 109 QA-fixed files and enable HTTPS on vbi.narenlife.com
+- [x] **Phase 1: Baseline Deployment** - Push 109 QA-fixed files and enable HTTPS on vbi.narenlife.com
 - [ ] **Phase 2: Contact Form** - Build and deploy contact form Cloudflare Worker with email delivery
 - [ ] **Phase 3: Partner Inquiry Form** - Build and deploy partner inquiry Cloudflare Worker
 - [ ] **Phase 4: Newsletter Signup Form** - Build and deploy newsletter Worker with double opt-in
@@ -37,8 +37,8 @@ Decimal phases appear between their surrounding integers in numeric order.
   5. PAT tokens used for deployment have been rotated or revoked
 **Plans**: 2 plans
 Plans:
-- [ ] 01-01-PLAN.md — Fix DNS and push 109 QA-fixed files to GitHub
-- [ ] 01-02-PLAN.md — Enable HTTPS and clean up PAT tokens
+- [x] 01-01-PLAN.md — Fix DNS and push 109 QA-fixed files to GitHub
+- [x] 01-02-PLAN.md — Enable HTTPS and clean up PAT tokens
 
 ### Phase 2: Contact Form
 **Goal**: Visitors to the contact page can send a message and receive feedback confirming delivery
@@ -49,7 +49,10 @@ Plans:
   2. The configured recipient receives an email notification with the submitted content within seconds
   3. The visitor sees a clear success message after submission — no silent failures or blank screen
   4. If the Worker or email delivery fails, the visitor sees a specific error message (not a success message)
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 02-01-PLAN.md — Create Worker project and update contact page HTML/JS for form submission
+- [ ] 02-02-PLAN.md — Deploy Worker, configure Resend, and verify end-to-end email delivery
 
 ### Phase 3: Partner Inquiry Form
 **Goal**: Prospective partners can submit a business inquiry that routes to a separate recipient inbox
@@ -142,8 +145,8 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Baseline Deployment | 0/2 | Planning complete | - |
-| 2. Contact Form | 0/TBD | Not started | - |
+| 1. Baseline Deployment | 2/2 | Complete | 2026-03-15 |
+| 2. Contact Form | 0/2 | Planning complete | - |
 | 3. Partner Inquiry Form | 0/TBD | Not started | - |
 | 4. Newsletter Signup Form | 0/TBD | Not started | - |
 | 5. Form Security Infrastructure | 0/TBD | Not started | - |
