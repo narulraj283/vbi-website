@@ -62,7 +62,10 @@ Plans:
   1. A visitor can fill out business name, contact info, and inquiry details on the partner page and submit
   2. The partner inquiry is delivered to the configured recipient via its own dedicated Cloudflare Worker
   3. Partner inquiries do not arrive mixed with general contact messages — they are routed separately
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 03-01-PLAN.md — Create Partner Worker project and update partners page HTML/JS for form submission
+- [ ] 03-02-PLAN.md — Deploy Partner Worker, configure secrets, and verify end-to-end email delivery
 
 ### Phase 4: Newsletter Signup Form
 **Goal**: Visitors can subscribe to the VBI newsletter and receive a double opt-in confirmation email
@@ -147,7 +150,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 |-------|----------------|--------|-----------|
 | 1. Baseline Deployment | 2/2 | Complete | 2026-03-15 |
 | 2. Contact Form | 1/2 | In Progress|  |
-| 3. Partner Inquiry Form | 0/TBD | Not started | - |
+| 3. Partner Inquiry Form | 0/2 | Not started | - |
 | 4. Newsletter Signup Form | 0/TBD | Not started | - |
 | 5. Form Security Infrastructure | 0/TBD | Not started | - |
 | 6. Transcription Pipeline | 0/TBD | Not started | - |
