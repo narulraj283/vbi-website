@@ -96,28 +96,28 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FORM-01 | Phase 2 | Pending |
 | FORM-02 | Phase 2 | Pending |
 | FORM-03 | Phase 2 | Pending |
-| FORM-04 | Phase 2 | Pending |
-| FORM-05 | Phase 2 | Pending |
-| FORM-06 | Phase 2 | Pending |
-| FORM-07 | Phase 2 | Pending |
-| FORM-08 | Phase 2 | Pending |
-| FORM-09 | Phase 2 | Pending |
-| FORM-10 | Phase 2 | Pending |
-| PODC-01 | Phase 3 | Pending |
-| PODC-02 | Phase 3 | Pending |
-| PODC-03 | Phase 3 | Pending |
-| PODC-04 | Phase 3 | Pending |
-| PODC-05 | Phase 3 | Pending |
-| PODC-06 | Phase 3 | Pending |
-| SCHM-01 | Phase 4 | Pending |
-| SCHM-02 | Phase 4 | Pending |
-| SCHM-03 | Phase 4 | Pending |
-| SCHM-04 | Phase 4 | Pending |
-| SCHM-05 | Phase 4 | Pending |
-| ASST-01 | Phase 5 | Pending |
-| ASST-02 | Phase 5 | Pending |
-| ASST-03 | Phase 5 | Pending |
-| ASST-04 | Phase 5 | Pending |
+| FORM-04 | Phase 3 | Pending |
+| FORM-05 | Phase 3 | Pending |
+| FORM-06 | Phase 4 | Pending |
+| FORM-07 | Phase 4 | Pending |
+| FORM-08 | Phase 5 | Pending |
+| FORM-09 | Phase 5 | Pending |
+| FORM-10 | Phase 5 | Pending |
+| PODC-01 | Phase 7 | Pending |
+| PODC-02 | Phase 7 | Pending |
+| PODC-03 | Phase 6 | Pending |
+| PODC-04 | Phase 6 | Pending |
+| PODC-05 | Phase 6 | Pending |
+| PODC-06 | Phase 6 | Pending |
+| SCHM-01 | Phase 8 | Pending |
+| SCHM-02 | Phase 9 | Pending |
+| SCHM-03 | Phase 9 | Pending |
+| SCHM-04 | Phase 9 | Pending |
+| SCHM-05 | Phase 9 | Pending |
+| ASST-01 | Phase 10 | Pending |
+| ASST-02 | Phase 10 | Pending |
+| ASST-03 | Phase 10 | Pending |
+| ASST-04 | Phase 10 | Pending |
 
 **Coverage:**
 - v1 requirements: 29 total
@@ -126,4 +126,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-03-15*
-*Last updated: 2026-03-15 after initial definition*
+*Last updated: 2026-03-15 after roadmap creation — traceability updated to fine-grained 10-phase structure*
