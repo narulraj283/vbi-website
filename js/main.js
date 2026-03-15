@@ -394,6 +394,13 @@ function initFormHandling() {
     return;
   }
 
+  // Partner form — POST to Cloudflare Worker
+  const partnerForm = document.querySelector('[data-form="partner"]');
+  if (partnerForm) {
+    initPartnerForm(partnerForm);
+    return;
+  }
+
   // Generic forms (non-contact, non-newsletter) — keep original behavior
   const forms = document.querySelectorAll('form:not(.newsletter-form):not([data-form])');
   if (!forms.length) return;
@@ -459,6 +466,58 @@ function initContactForm(form) {
         form.reset();
       } else {
         feedback.textContent = result.error || 'Failed to send message. Please try again.';
+        feedback.className = 'form-error';
+      }
+    } catch (err) {
+      feedback.textContent = 'Network error. Please check your connection and try again.';
+      feedback.className = 'form-error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+}
+
+function initPartnerForm(form) {
+  var PARTNER_WORKER_URL = 'https://vbi-partner-inquiry.naren-ekwa.workers.dev';
+  var feedback = document.getElementById('partner-form-feedback');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    if (!validateForm(form)) return;
+
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    feedback.textContent = '';
+    feedback.className = '';
+
+    var data = {
+      company_name: form.querySelector('[name="company_name"]').value.trim(),
+      contact_name: form.querySelector('[name="contact_name"]').value.trim(),
+      contact_email: form.querySelector('[name="contact_email"]').value.trim(),
+      contact_phone: form.querySelector('[name="contact_phone"]').value.trim(),
+      category: form.querySelector('[name="category"]').value,
+      interest_level: form.querySelector('[name="interest_level"]').value,
+      message: form.querySelector('[name="message"]').value.trim(),
+    };
+
+    try {
+      var res = await fetch(PARTNER_WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      var result = await res.json();
+
+      if (result.ok) {
+        feedback.textContent = 'Partnership request submitted! We\'ll review and reach out within 2-3 business days.';
+        feedback.className = 'form-success';
+        form.reset();
+      } else {
+        feedback.textContent = result.error || 'Failed to submit inquiry. Please try again.';
         feedback.className = 'form-error';
       }
     } catch (err) {

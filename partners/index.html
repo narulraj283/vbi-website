@@ -306,7 +306,7 @@
             <h2>Ready to Partner With VBI?</h2>
             <p class="section-subtitle">Tell us about your company and partnership goals</p>
 
-            <form class="partner-form" action="#" method="POST">
+            <form class="partner-form" data-form="partner" action="#" method="POST">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="company-name">Company Name *</label>
@@ -379,6 +379,8 @@
                 <div class="form-row">
                     <button type="submit" class="cta-button">Submit Partnership Request</button>
                 </div>
+
+                <div id="partner-form-feedback" role="alert" aria-live="polite"></div>
 
                 <p class="form-note">We'll review your application and reach out within 2-3 business days to discuss opportunities.</p>
             </form>
