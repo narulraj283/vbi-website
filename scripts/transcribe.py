@@ -193,13 +193,18 @@ def generate_html_fragment(segments, episode_num: int, output_dir: str, speaker_
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, f"episode-{episode_num}.html")
 
-    # Group consecutive same-speaker segments
+    # Group consecutive same-speaker segments, but cap at ~10 segments per
+    # paragraph so monologues don't become one giant block of text.
+    MAX_SEGMENTS_PER_PARAGRAPH = 10
     grouped = []
+    seg_count = 0
     for seg in segments:
-        if grouped and grouped[-1]["speaker"] == seg["speaker"]:
+        if grouped and grouped[-1]["speaker"] == seg["speaker"] and seg_count < MAX_SEGMENTS_PER_PARAGRAPH:
             grouped[-1]["text"] += " " + seg["text"]
+            seg_count += 1
         else:
             grouped.append({"speaker": seg["speaker"], "text": seg["text"]})
+            seg_count = 1
 
     # Build HTML using BeautifulSoup for proper escaping
     doc = BeautifulSoup("", "html.parser")
