@@ -39,10 +39,10 @@ Requirements for site completion. Each maps to roadmap phases.
 ### Structured Data
 
 - [x] **SCHM-01**: Events page has valid schema.org Event JSON-LD markup (name, startDate, location)
-- [ ] **SCHM-02**: Podcast hub page has valid schema.org PodcastSeries JSON-LD markup
-- [ ] **SCHM-03**: Each of 101 episode pages has valid schema.org PodcastEpisode JSON-LD markup
-- [ ] **SCHM-04**: Each PodcastEpisode references PodcastSeries via partOfSeries property
-- [ ] **SCHM-05**: All structured data passes Google Rich Results Test validation
+- [x] **SCHM-02**: Podcast hub page has valid schema.org PodcastSeries JSON-LD markup
+- [x] **SCHM-03**: Each of 101 episode pages has valid schema.org PodcastEpisode JSON-LD markup
+- [x] **SCHM-04**: Each PodcastEpisode references PodcastSeries via partOfSeries property
+- [x] **SCHM-05**: All structured data passes Google Rich Results Test validation
 
 ### Assets & Content
 
@@ -110,10 +110,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PODC-05 | Phase 6 | Pending |
 | PODC-06 | Phase 6 | Pending |
 | SCHM-01 | Phase 8 | Pending |
-| SCHM-02 | Phase 9 | Pending |
-| SCHM-03 | Phase 9 | Pending |
-| SCHM-04 | Phase 9 | Pending |
-| SCHM-05 | Phase 9 | Pending |
+| SCHM-02 | Phase 9 | Complete |
+| SCHM-03 | Phase 9 | Complete |
+| SCHM-04 | Phase 9 | Complete |
+| SCHM-05 | Phase 9 | Complete |
 | ASST-01 | Phase 10 | Pending |
 | ASST-02 | Phase 10 | Pending |
 | ASST-03 | Phase 10 | Pending |
