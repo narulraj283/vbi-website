@@ -387,27 +387,87 @@ function initTestimonialCarousel() {
 // ============================================================================
 
 function initFormHandling() {
-  const forms = document.querySelectorAll('form:not(.newsletter-form)');
+  // Contact form — POST to Cloudflare Worker
+  const contactForm = document.querySelector('[data-form="contact"]');
+  if (contactForm) {
+    initContactForm(contactForm);
+    return;
+  }
+
+  // Generic forms (non-contact, non-newsletter) — keep original behavior
+  const forms = document.querySelectorAll('form:not(.newsletter-form):not([data-form])');
   if (!forms.length) return;
 
   forms.forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-
       if (!validateForm(form)) return;
 
-      // Show success message
       const successMessage = document.createElement('div');
       successMessage.className = 'form-success-message';
-      successMessage.innerHTML = '✓ Thank you! We\'ll be in touch soon.';
+      successMessage.innerHTML = '\u2713 Thank you! We\'ll be in touch soon.';
       form.appendChild(successMessage);
 
-      // Reset form after 3 seconds
       setTimeout(() => {
         form.reset();
         successMessage.remove();
       }, 3000);
     });
+  });
+}
+
+function initContactForm(form) {
+  var WORKER_URL = 'https://vbi-contact-form.naren-ekwa.workers.dev';
+  var feedback = document.getElementById('form-feedback');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    if (!validateForm(form)) return;
+
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    feedback.textContent = '';
+    feedback.className = '';
+
+    var data = {
+      name: form.querySelector('[name="name"]').value.trim(),
+      email: form.querySelector('[name="email"]').value.trim(),
+      subject: form.querySelector('[name="subject"]').value,
+      message: form.querySelector('[name="message"]').value.trim(),
+    };
+
+    // Include phone if provided
+    var phoneField = form.querySelector('[name="phone"]');
+    if (phoneField && phoneField.value.trim()) {
+      data.phone = phoneField.value.trim();
+    }
+
+    try {
+      var res = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      var result = await res.json();
+
+      if (result.ok) {
+        feedback.textContent = 'Message sent successfully! We\'ll respond within 1-2 business days.';
+        feedback.className = 'form-success';
+        form.reset();
+      } else {
+        feedback.textContent = result.error || 'Failed to send message. Please try again.';
+        feedback.className = 'form-error';
+      }
+    } catch (err) {
+      feedback.textContent = 'Network error. Please check your connection and try again.';
+      feedback.className = 'form-error';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
   });
 }
 
