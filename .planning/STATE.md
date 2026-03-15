@@ -58,6 +58,9 @@ Recent decisions affecting current work:
 - [Phase 3]: Partner Worker URL placeholder uses naren-ekwa.workers.dev -- actual subdomain confirmed during deploy
 - [Phase 3]: FROM_EMAIL uses partners@narenlife.com to distinguish from contact@narenlife.com
 - [Phase 3]: agree_contact checkbox is client-side only -- not sent to Worker
+- [Phase 4]: HMAC-SHA256 via Web Crypto for newsletter confirmation tokens (no JWT library)
+- [Phase 4]: Token format base64url(payload).base64url(signature) with 24h expiry
+- [Phase 4]: GET /confirm returns HTML (browser navigation), POST /subscribe returns JSON with CORS
 
 ### Pending Todos
 
@@ -73,5 +76,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-15
-Stopped at: Completed 03-01-PLAN.md (Partner Worker + frontend JS)
+Stopped at: Completed 04-01-PLAN.md (Newsletter Worker + homepage footer form)
 Resume file: None

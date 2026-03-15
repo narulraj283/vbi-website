@@ -21,8 +21,8 @@ Requirements for site completion. Each maps to roadmap phases.
 - [x] **FORM-03**: User sees success/error feedback after form submission (no silent failures)
 - [x] **FORM-04**: User can submit partner inquiry form with business name, contact info, and inquiry details
 - [x] **FORM-05**: Partner inquiry form routes to configured recipient via separate Cloudflare Worker
-- [ ] **FORM-06**: User can sign up for newsletter with email address
-- [ ] **FORM-07**: Newsletter signup sends double opt-in confirmation email via Cloudflare Worker + Resend
+- [x] **FORM-06**: User can sign up for newsletter with email address
+- [x] **FORM-07**: Newsletter signup sends double opt-in confirmation email via Cloudflare Worker + Resend
 - [ ] **FORM-08**: All forms protected against spam via Cloudflare Turnstile + honeypot field
 - [ ] **FORM-09**: All forms rate-limited (5 submissions per IP per hour)
 - [ ] **FORM-10**: Form Worker secrets stored via wrangler secret (never in wrangler.toml or repo)
@@ -98,8 +98,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FORM-03 | Phase 2 | Complete |
 | FORM-04 | Phase 3 | Complete |
 | FORM-05 | Phase 3 | Complete |
-| FORM-06 | Phase 4 | Pending |
-| FORM-07 | Phase 4 | Pending |
+| FORM-06 | Phase 4 | Complete |
+| FORM-07 | Phase 4 | Complete |
 | FORM-08 | Phase 5 | Pending |
 | FORM-09 | Phase 5 | Pending |
 | FORM-10 | Phase 5 | Pending |
