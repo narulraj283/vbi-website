@@ -100,7 +100,9 @@ Plans:
   3. VAD pre-filtering is active — the pipeline does not hallucinate text over silence or music intros
   4. Transcript text is HTML-escaped via BeautifulSoup before injection — no raw user content reaches the page
   5. The single-episode validation run completes without errors and the resulting episode page renders correctly in a browser
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 06-01-PLAN.md — Build transcription pipeline script, validate on episode 1 end-to-end
 
 ### Phase 7: Batch Transcript Injection
 **Goal**: All 101 VBI podcast episode pages display inline transcripts sourced from Libsyn audio
@@ -160,7 +162,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | 3. Partner Inquiry Form | 1/2 | In Progress | - |
 | 4. Newsletter Signup Form | 1/2 | In Progress | - |
 | 5. Form Security Infrastructure | 0/TBD | Not started | - |
-| 6. Transcription Pipeline | 0/TBD | Not started | - |
+| 6. Transcription Pipeline | 0/1 | Not started | - |
 | 7. Batch Transcript Injection | 0/TBD | Not started | - |
 | 8. Events Structured Data | 1/1 | Complete | 2026-03-15 |
 | 9. Podcast Structured Data | 1/1 | Complete | 2026-03-15 |
