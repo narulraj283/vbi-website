@@ -16,9 +16,9 @@ Requirements for site completion. Each maps to roadmap phases.
 
 ### Forms
 
-- [ ] **FORM-01**: User can submit contact form with name, email, subject, and message fields
-- [ ] **FORM-02**: Contact form sends email notification to configured recipient via Cloudflare Worker + Resend
-- [ ] **FORM-03**: User sees success/error feedback after form submission (no silent failures)
+- [x] **FORM-01**: User can submit contact form with name, email, subject, and message fields
+- [x] **FORM-02**: Contact form sends email notification to configured recipient via Cloudflare Worker + Resend
+- [x] **FORM-03**: User sees success/error feedback after form submission (no silent failures)
 - [ ] **FORM-04**: User can submit partner inquiry form with business name, contact info, and inquiry details
 - [ ] **FORM-05**: Partner inquiry form routes to configured recipient via separate Cloudflare Worker
 - [ ] **FORM-06**: User can sign up for newsletter with email address
@@ -93,9 +93,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DEPL-02 | Phase 1 | Pending |
 | DEPL-03 | Phase 1 | Pending |
 | DEPL-04 | Phase 1 | Pending |
-| FORM-01 | Phase 2 | Pending |
-| FORM-02 | Phase 2 | Pending |
-| FORM-03 | Phase 2 | Pending |
+| FORM-01 | Phase 2 | Complete |
+| FORM-02 | Phase 2 | Complete |
+| FORM-03 | Phase 2 | Complete |
 | FORM-04 | Phase 3 | Pending |
 | FORM-05 | Phase 3 | Pending |
 | FORM-06 | Phase 4 | Pending |
