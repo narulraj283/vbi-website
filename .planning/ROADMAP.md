@@ -120,7 +120,9 @@ Plans:
   1. The events page `<head>` contains a `<script type="application/ld+json">` block with valid schema.org Event markup
   2. The Event JSON-LD includes at minimum: name, startDate, and location for each event
   3. The events page passes Google Rich Results Test validation with no errors
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 08-01-PLAN.md — Inject schema.org Event JSON-LD for all 7 events
 
 ### Phase 9: Podcast Structured Data
 **Goal**: The podcast hub and all 101 episode pages carry valid schema.org JSON-LD making the VBI podcast eligible for Google podcast rich results
@@ -158,6 +160,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | 5. Form Security Infrastructure | 0/TBD | Not started | - |
 | 6. Transcription Pipeline | 0/TBD | Not started | - |
 | 7. Batch Transcript Injection | 0/TBD | Not started | - |
-| 8. Events Structured Data | 0/TBD | Not started | - |
+| 8. Events Structured Data | 0/1 | Not started | - |
 | 9. Podcast Structured Data | 0/TBD | Not started | - |
 | 10. Assets & Content | 0/TBD | Not started | - |
