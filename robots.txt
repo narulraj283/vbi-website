@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vbi.narenlife.com/sitemap.xml
