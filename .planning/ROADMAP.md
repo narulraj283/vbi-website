@@ -133,7 +133,9 @@ Plans:
   2. Each of the 101 episode pages contains a valid PodcastEpisode JSON-LD block with episode name, date published, and audio URL
   3. Every PodcastEpisode JSON-LD includes a `partOfSeries` property referencing the PodcastSeries
   4. A sample of episode pages passes Google Rich Results Test validation — no errors on tested pages
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 09-01-PLAN.md — Fix hub PodcastSeries type, batch-fix episode JSON-LD (ISO dates, PodcastSeries refs), validate
 
 ### Phase 10: Assets & Content
 **Goal**: All visible placeholder content is replaced with real assets — partner logos, founder headshot, and working social media links
@@ -155,11 +157,11 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 |-------|----------------|--------|-----------|
 | 1. Baseline Deployment | 2/2 | Complete | 2026-03-15 |
 | 2. Contact Form | 1/2 | In Progress|  |
-| 3. Partner Inquiry Form | 0/2 | Not started | - |
+| 3. Partner Inquiry Form | 1/2 | In Progress | - |
 | 4. Newsletter Signup Form | 0/2 | Not started | - |
 | 5. Form Security Infrastructure | 0/TBD | Not started | - |
 | 6. Transcription Pipeline | 0/TBD | Not started | - |
 | 7. Batch Transcript Injection | 0/TBD | Not started | - |
 | 8. Events Structured Data | 0/1 | Not started | - |
-| 9. Podcast Structured Data | 0/TBD | Not started | - |
+| 9. Podcast Structured Data | 0/1 | Not started | - |
 | 10. Assets & Content | 0/TBD | Not started | - |

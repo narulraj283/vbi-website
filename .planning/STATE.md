@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Deliver A+ quality content that practice owners, veterinarians, and practice managers love — and that industry experts recognize as top-tier
-**Current focus:** Phase 2 — Contact Form
+**Current focus:** Phase 4 — Newsletter Signup Form
 
 ## Current Position
 
-Phase: 2 of 10 (Contact Form)
-Plan: 1 of TBD in current phase
+Phase: 4 of 10 (Newsletter Signup Form)
+Plan: 1 of 2 in current phase
 Status: Executing
-Last activity: 2026-03-15 — Plan 02-01 complete (Contact Form Worker + frontend JS)
+Last activity: 2026-03-15 — Plan 04-01 complete (Newsletter Worker + homepage footer form)
 
-Progress: [██░░░░░░░░] 15%
+Progress: [███░░░░░░░] 25%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
-- Average duration: ~8 minutes
-- Total execution time: ~23 minutes
+- Total plans completed: 5
+- Average duration: ~5 minutes
+- Total execution time: ~27 minutes
 
 **By Phase:**
 
@@ -29,9 +29,11 @@ Progress: [██░░░░░░░░] 15%
 |-------|-------|-------|----------|
 | 1. Baseline Deployment | 2/2 | ~20 min | ~10 min |
 | 2. Contact Form | 1/TBD | ~3 min | ~3 min |
+| 3. Partner Inquiry Form | 1/2 | ~2 min | ~2 min |
+| 4. Newsletter Signup Form | 1/2 | ~2 min | ~2 min |
 
 **Recent Trend:**
-- Last 5 plans: Plan 01-01 (~15 min), Plan 01-02 (~5 min), Plan 02-01 (~3 min)
+- Last 5 plans: Plan 01-02 (~5 min), Plan 02-01 (~3 min), Plan 03-01 (~2 min), Plan 04-01 (~2 min)
 - Trend: Fast (code generation)
 
 *Updated after each plan completion*
@@ -53,6 +55,9 @@ Recent decisions affecting current work:
 - [Phase 2]: Worker URL placeholder naren-ekwa.workers.dev -- actual subdomain confirmed during deploy
 - [Phase 2]: CORS origin locked to env.ALLOWED_ORIGIN (dynamic, not hardcoded)
 - [Phase 2]: Phone optional in email body; newsletter checkbox deferred to Phase 4
+- [Phase 3]: Partner Worker URL placeholder uses naren-ekwa.workers.dev -- actual subdomain confirmed during deploy
+- [Phase 3]: FROM_EMAIL uses partners@narenlife.com to distinguish from contact@narenlife.com
+- [Phase 3]: agree_contact checkbox is client-side only -- not sent to Worker
 
 ### Pending Todos
 
@@ -68,5 +73,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-15
-Stopped at: Completed 02-01-PLAN.md (Contact Form Worker + frontend)
+Stopped at: Completed 03-01-PLAN.md (Partner Worker + frontend JS)
 Resume file: None
