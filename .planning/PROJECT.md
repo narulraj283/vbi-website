@@ -6,7 +6,7 @@ The Veterinary Business Institute (VBI) website — a professional web presence 
 
 ## Core Value
 
-The VBI website must present VBI as a credible, professional institute for veterinary business education — every page must work, look polished, and serve its purpose.
+The VBI website must deliver A+ quality content that practice owners, veterinarians, and practice managers love — and that industry experts recognize as top-tier. Every page must work, look polished, and serve its audience with authority and professionalism.
 
 ## Requirements
 
@@ -57,7 +57,8 @@ The VBI website must present VBI as a credible, professional institute for veter
 - **Hosting:** GitHub Pages (static only) — no server-side rendering
 - **Forms:** Must use Cloudflare Workers — no third-party form services
 - **Brand:** Must follow VBI brand guidelines (colors, fonts, ekwa.com/msm as only promo link)
-- **Quality:** Everything must be A+ quality — this represents a professional institute
+- **Quality:** A+ quality that practice owners, veterinarians, and managers love — content experts would endorse
+- **Audience:** Primary: veterinary practice owners, veterinarians, practice managers. Content must speak their language and address their real challenges
 - **Assets:** Partner logos and Naren's photo need to be sourced/confirmed before integration
 - **Email:** Form submission recipient email TBD — will be provided when forms are built
 
