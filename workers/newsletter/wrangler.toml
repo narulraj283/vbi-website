@@ -7,3 +7,10 @@ compatibility_flags = ["nodejs_compat"]
 FROM_EMAIL = "newsletter@dermobrain.com"
 ALLOWED_ORIGIN = "https://vbi.narenlife.com"
 CONFIRM_URL = "https://vbi-newsletter.naren-6e3.workers.dev"
+TURNSTILE_SITE_KEY = "0x4AAAAAACrUsLx_afGe8m4N"
+
+# Secrets (set via wrangler secret put): RESEND_API_KEY, CONFIRM_SECRET, RESEND_AUDIENCE_ID, TURNSTILE_SECRET_KEY
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "485e954b86e1472081a5857e0fe7a4e3"

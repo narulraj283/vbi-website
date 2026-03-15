@@ -444,6 +444,8 @@ function initContactForm(form) {
       email: form.querySelector('[name="email"]').value.trim(),
       subject: form.querySelector('[name="subject"]').value,
       message: form.querySelector('[name="message"]').value.trim(),
+      'cf-turnstile-response': document.querySelector('[name="cf-turnstile-response"]') ? document.querySelector('[name="cf-turnstile-response"]').value : '',
+      '_gotcha': document.getElementById('_gotcha') ? document.getElementById('_gotcha').value : '',
     };
 
     // Include phone if provided
@@ -502,6 +504,8 @@ function initPartnerForm(form) {
       category: form.querySelector('[name="category"]').value,
       interest_level: form.querySelector('[name="interest_level"]').value,
       message: form.querySelector('[name="message"]').value.trim(),
+      'cf-turnstile-response': document.querySelector('[name="cf-turnstile-response"]') ? document.querySelector('[name="cf-turnstile-response"]').value : '',
+      '_gotcha': document.getElementById('_gotcha') ? document.getElementById('_gotcha').value : '',
     };
 
     try {
@@ -783,7 +787,11 @@ function initNewsletterForm() {
       var res = await fetch(WORKER_URL + '/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email }),
+        body: JSON.stringify({
+          email: email,
+          'cf-turnstile-response': document.querySelector('.newsletter-form [name="cf-turnstile-response"]') ? document.querySelector('.newsletter-form [name="cf-turnstile-response"]').value : '',
+          '_gotcha': document.querySelector('.newsletter-form #_gotcha') ? document.querySelector('.newsletter-form #_gotcha').value : '',
+        }),
       });
       var result = await res.json();
 
@@ -805,4 +813,19 @@ function initNewsletterForm() {
 function showNewsletterFeedback(el, message, type) {
   el.textContent = message;
   el.className = type === 'success' ? 'newsletter-success' : 'newsletter-error';
+}
+
+// ============================================================================
+// 16. TURNSTILE CALLBACK
+// ============================================================================
+
+function onTurnstileSuccess(token) {
+  // Enable submit buttons once Turnstile verification completes
+  var form = document.querySelector('.cf-turnstile')?.closest('form');
+  if (form) {
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = false;
+    }
+  }
 }

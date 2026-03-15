@@ -31,6 +31,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D7377'/><text x='50' y='65' font-size='60' font-weight='bold' fill='white' text-anchor='middle' font-family='Arial'>V</text></svg>">
@@ -603,6 +604,11 @@
           <div class="newsletter-input-group">
             <input type="email" name="email" placeholder="Your email address" required aria-label="Email address for newsletter">
             <button type="submit">Subscribe</button>
+          </div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAACrUsLx_afGe8m4N" data-callback="onTurnstileSuccess" data-theme="light"></div>
+          <div style="position:absolute;left:-9999px;" aria-hidden="true">
+            <label for="_gotcha">Do not fill this</label>
+            <input type="text" name="_gotcha" id="_gotcha" tabindex="-1" autocomplete="off">
           </div>
           <div id="newsletter-feedback" role="status" aria-live="polite"></div>
         </form>

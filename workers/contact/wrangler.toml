@@ -7,3 +7,10 @@ compatibility_flags = ["nodejs_compat"]
 FROM_EMAIL = "contact@dermobrain.com"
 TO_EMAIL = "Naren@ekwa.com"
 ALLOWED_ORIGIN = "https://vbi.narenlife.com"
+TURNSTILE_SITE_KEY = "0x4AAAAAACrUsLx_afGe8m4N"
+
+# Secrets (set via wrangler secret put): RESEND_API_KEY, TURNSTILE_SECRET_KEY
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "485e954b86e1472081a5857e0fe7a4e3"

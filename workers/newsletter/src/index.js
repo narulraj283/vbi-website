@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import { verifyTurnstile, isHoneypot, checkRateLimit } from "../../shared/security.js";
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "", // Set dynamically from env.ALLOWED_ORIGIN
@@ -153,6 +154,26 @@ export default {
 async function handleSubscribe(request, env) {
   try {
     var body = await request.json();
+
+    // --- Security checks ---
+    if (isHoneypot(body)) {
+      return jsonResponse({ ok: true }, 200, env);
+    }
+
+    var turnstileResult = await verifyTurnstile(
+      body["cf-turnstile-response"],
+      env.TURNSTILE_SECRET_KEY,
+      request.headers.get("CF-Connecting-IP")
+    );
+    if (!turnstileResult.ok) {
+      return jsonResponse({ ok: false, error: turnstileResult.error }, 403, env);
+    }
+
+    var rateResult = await checkRateLimit(env, request.headers.get("CF-Connecting-IP"));
+    if (!rateResult.ok) {
+      return jsonResponse({ ok: false, error: "Too many submissions. Please try again later." }, 429, env);
+    }
+
     var email = body.email;
 
     // Validate email
