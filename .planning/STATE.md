@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Deliver A+ quality content that practice owners, veterinarians, and practice managers love — and that industry experts recognize as top-tier
-**Current focus:** Phase 9 — Podcast Structured Data (complete)
+**Current focus:** Phase 6 — Transcription Pipeline (plan 01 complete, awaiting human verification)
 
 ## Current Position
 
-Phase: 9 of 10 (Podcast Structured Data)
-Plan: 1 of 1 in current phase (complete)
-Status: Phase complete
-Last activity: 2026-03-15 — Plan 09-01 complete (Podcast JSON-LD structured data)
+Phase: 6 of 10 (Transcription Pipeline)
+Plan: 1 of 1 in current phase (complete - awaiting human-verify checkpoint)
+Status: Plan complete, pending human review of episode 1 transcript
+Last activity: 2026-03-15 — Plan 06-01 complete (Transcription pipeline + episode 1)
 
-Progress: [██████░░░░] 60%
+Progress: [████████░░] 70%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: ~4 minutes
-- Total execution time: ~30 minutes
+- Total plans completed: 8
+- Average duration: ~4.5 minutes
+- Total execution time: ~36 minutes
 
 **By Phase:**
 
@@ -33,10 +33,11 @@ Progress: [██████░░░░] 60%
 | 4. Newsletter Signup Form | 1/2 | ~2 min | ~2 min |
 | 8. Events Structured Data | 1/1 | ~1 min | ~1 min |
 | 9. Podcast Structured Data | 1/1 | ~2 min | ~2 min |
+| 6. Transcription Pipeline | 1/1 | ~6 min | ~6 min |
 
 **Recent Trend:**
-- Last 5 plans: Plan 03-01 (~2 min), Plan 04-01 (~2 min), Plan 08-01 (~1 min), Plan 09-01 (~2 min)
-- Trend: Fast (structured data batch operations)
+- Last 5 plans: Plan 04-01 (~2 min), Plan 08-01 (~1 min), Plan 09-01 (~2 min), Plan 06-01 (~6 min)
+- Trend: Transcription pipeline took longer due to audio download + CPU transcription
 
 *Updated after each plan completion*
 
@@ -68,6 +69,10 @@ Recent decisions affecting current work:
 - [Phase 9]: Omitted webFeed from hub JSON-LD -- no confirmed RSS URL in existing HTML
 - [Phase 9]: Left duration PT48M placeholder -- no real episode duration data available
 - [Phase 9]: Google Rich Results Test deferred to post-deployment (requires live URL)
+- [Phase 6]: Used faster-whisper tiny model for validation (96s on CPU) -- batch run can use small for accuracy
+- [Phase 6]: Episode 1 detected as monologue -- heuristic speaker labeling labels all as Host
+- [Phase 6]: Paragraph grouping capped at 10 segments to prevent wall-of-text in monologue episodes
+- [Phase 6]: faster-whisper 1.2.1 available and installed (plan noted uncertainty about version)
 
 ### Pending Todos
 
@@ -76,12 +81,12 @@ None yet.
 ### Blockers/Concerns
 
 - [Phase 2/3/4]: Recipient email address for form Workers is TBD — must be confirmed before Workers deploy
-- [Phase 6/7]: Host machine hardware unknown — need to check CPU vs GPU before committing to compute_type and expected runtime
+- [Phase 6/7]: Host is Apple Silicon Mac (arm64), CPU-only, no CUDA -- faster-whisper tiny model transcribes ~48 min audio in ~96s
 - [Phase 10]: Partner logos (8) and Naren headshot are external dependencies — cannot stage without actual files
 - [Phase 10]: Social media profile URLs for VBI Twitter/X, LinkedIn, Instagram, Facebook need verification
 
 ## Session Continuity
 
 Last session: 2026-03-15
-Stopped at: Completed 09-01-PLAN.md (Podcast JSON-LD structured data)
+Stopped at: Completed 06-01-PLAN.md (Transcription pipeline + episode 1 validation)
 Resume file: None
