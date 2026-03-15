@@ -13,13 +13,13 @@ The VBI site is a complete 114-file static HTML site on GitHub Pages that needs 
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Baseline Deployment** - Push 109 QA-fixed files and enable HTTPS on vbi.narenlife.com
-- [ ] **Phase 2: Contact Form** - Build and deploy contact form Cloudflare Worker with email delivery
-- [ ] **Phase 3: Partner Inquiry Form** - Build and deploy partner inquiry Cloudflare Worker
-- [ ] **Phase 4: Newsletter Signup Form** - Build and deploy newsletter Worker with double opt-in
-- [ ] **Phase 5: Form Security Infrastructure** - Spam protection, rate limiting, and secrets management across all forms
-- [ ] **Phase 6: Transcription Pipeline** - Build faster-whisper pipeline with VAD, speaker labels, and single-episode validation
-- [ ] **Phase 7: Batch Transcript Injection** - Transcribe all 101 episodes and inject transcripts into episode HTML pages
-- [ ] **Phase 8: Events Structured Data** - Add schema.org Event JSON-LD to events page
+- [x] **Phase 2: Contact Form** - Build and deploy contact form Cloudflare Worker with email delivery
+- [x] **Phase 3: Partner Inquiry Form** - Build and deploy partner inquiry Cloudflare Worker
+- [x] **Phase 4: Newsletter Signup Form** - Build and deploy newsletter Worker with double opt-in
+- [x] **Phase 5: Form Security Infrastructure** - Spam protection, rate limiting, and secrets management across all forms
+- [x] **Phase 6: Transcription Pipeline** - Build faster-whisper pipeline with VAD, speaker labels, and single-episode validation
+- [ ] **Phase 7: Batch Transcript Injection** - Transcribe all 101 episodes and inject transcripts into episode HTML pages (17/101 done)
+- [x] **Phase 8: Events Structured Data** - Add schema.org Event JSON-LD to events page
 - [x] **Phase 9: Podcast Structured Data** - Add PodcastSeries and PodcastEpisode JSON-LD to hub and all 101 episode pages
 - [ ] **Phase 10: Assets & Content** - Integrate real partner logos, founder headshot, and social media footer links
 
@@ -51,8 +51,8 @@ Plans:
   4. If the Worker or email delivery fails, the visitor sees a specific error message (not a success message)
 **Plans**: 2 plans
 Plans:
-- [ ] 02-01-PLAN.md — Create Worker project and update contact page HTML/JS for form submission
-- [ ] 02-02-PLAN.md — Deploy Worker, configure Resend, and verify end-to-end email delivery
+- [x] 02-01-PLAN.md — Create Worker project and update contact page HTML/JS for form submission
+- [x] 02-02-PLAN.md — Deploy Worker, configure Resend, and verify end-to-end email delivery
 
 ### Phase 3: Partner Inquiry Form
 **Goal**: Prospective partners can submit a business inquiry that routes to a separate recipient inbox
@@ -64,8 +64,8 @@ Plans:
   3. Partner inquiries do not arrive mixed with general contact messages — they are routed separately
 **Plans**: 2 plans
 Plans:
-- [ ] 03-01-PLAN.md — Create Partner Worker project and update partners page HTML/JS for form submission
-- [ ] 03-02-PLAN.md — Deploy Partner Worker, configure secrets, and verify end-to-end email delivery
+- [x] 03-01-PLAN.md — Create Partner Worker project and update partners page HTML/JS for form submission
+- [x] 03-02-PLAN.md — Deploy Partner Worker, configure secrets, and verify end-to-end email delivery
 
 ### Phase 4: Newsletter Signup Form
 **Goal**: Visitors can subscribe to the VBI newsletter and receive a double opt-in confirmation email
@@ -77,8 +77,8 @@ Plans:
   3. The signup form provides feedback (success or error) after submission — never silent
 **Plans**: 2 plans
 Plans:
-- [ ] 04-01-PLAN.md — Create newsletter Worker with double opt-in and update homepage footer form
-- [ ] 04-02-PLAN.md — Deploy newsletter Worker, configure Resend audience, and verify end-to-end double opt-in
+- [x] 04-01-PLAN.md — Create newsletter Worker with double opt-in and update homepage footer form
+- [x] 04-02-PLAN.md — Deploy newsletter Worker, configure Resend audience, and verify end-to-end double opt-in
 
 ### Phase 5: Form Security Infrastructure
 **Goal**: All three form Workers are protected against spam and abuse, with credentials stored securely
@@ -88,7 +88,10 @@ Plans:
   1. Each form is protected by Cloudflare Turnstile and a honeypot field — bots are rejected before email delivery
   2. Each Worker enforces rate limiting: no single IP can submit more than 5 times per hour
   3. All Worker secrets (API keys, recipient emails) are stored via wrangler secret — not visible in wrangler.toml, source code, or git history
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [x] 05-01-PLAN.md — Create shared security module (Turnstile, honeypot, rate limiting) and integrate into all three Workers
+- [x] 05-02-PLAN.md — Add Turnstile widget and honeypot field to all three HTML form pages
 
 ### Phase 6: Transcription Pipeline
 **Goal**: A working, validated transcription pipeline that correctly processes one episode end-to-end before batch runs
@@ -102,7 +105,7 @@ Plans:
   5. The single-episode validation run completes without errors and the resulting episode page renders correctly in a browser
 **Plans**: 1 plan
 Plans:
-- [ ] 06-01-PLAN.md — Build transcription pipeline script, validate on episode 1 end-to-end
+- [x] 06-01-PLAN.md — Build transcription pipeline script, validate on episode 1 end-to-end
 
 ### Phase 7: Batch Transcript Injection
 **Goal**: All 101 VBI podcast episode pages display inline transcripts sourced from Libsyn audio
@@ -112,7 +115,9 @@ Plans:
   1. All 101 episode pages on the live site display a transcript section inline — not as a downloadable file
   2. Every transcript is readable without JavaScript — the content is baked into the HTML
   3. No episode page is broken or malformed after transcript injection — all 101 pages load and render correctly
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 07-01-PLAN.md — Create batch runner and transcribe all 101 episodes with progress tracking and periodic commits
 
 ### Phase 8: Events Structured Data
 **Goal**: The VBI events page is eligible for Google rich results via valid schema.org Event markup
@@ -158,12 +163,12 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Baseline Deployment | 2/2 | Complete | 2026-03-15 |
-| 2. Contact Form | 1/2 | In Progress|  |
-| 3. Partner Inquiry Form | 1/2 | In Progress | - |
-| 4. Newsletter Signup Form | 1/2 | In Progress | - |
-| 5. Form Security Infrastructure | 0/TBD | Not started | - |
-| 6. Transcription Pipeline | 0/1 | Not started | - |
-| 7. Batch Transcript Injection | 0/TBD | Not started | - |
+| 2. Contact Form | 2/2 | Complete | 2026-03-13 |
+| 3. Partner Inquiry Form | 2/2 | Complete | 2026-03-13 |
+| 4. Newsletter Signup Form | 2/2 | Complete | 2026-03-13 |
+| 5. Form Security Infrastructure | 2/2 | Complete | 2026-03-15 |
+| 6. Transcription Pipeline | 1/1 | Complete | 2026-03-15 |
+| 7. Batch Transcript Injection | 0/1 | In Progress (17/101) | - |
 | 8. Events Structured Data | 1/1 | Complete | 2026-03-15 |
 | 9. Podcast Structured Data | 1/1 | Complete | 2026-03-15 |
-| 10. Assets & Content | 0/TBD | Not started | - |
+| 10. Assets & Content | 0/TBD | Blocked (needs user assets) | - |
