@@ -748,58 +748,61 @@ function initEventDateFormatting() {
 // ============================================================================
 
 function initNewsletterForm() {
-  const newsletterForm = document.querySelector('.newsletter-form');
+  var newsletterForm = document.querySelector('.newsletter-form');
   if (!newsletterForm) return;
 
-  newsletterForm.addEventListener('submit', (e) => {
+  var WORKER_URL = 'https://vbi-newsletter.naren-ekwa.workers.dev';
+  var feedback = document.getElementById('newsletter-feedback');
+
+  newsletterForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    const emailInput = newsletterForm.querySelector('input[type="email"]');
+    var emailInput = newsletterForm.querySelector('input[name="email"]');
     if (!emailInput) return;
 
-    const email = emailInput.value.trim();
+    var email = emailInput.value.trim();
 
     if (!email) {
-      showNewsletterError(emailInput, 'Please enter your email');
+      showNewsletterFeedback(feedback, 'Please enter your email address.', 'error');
       return;
     }
 
     if (!isValidEmail(email)) {
-      showNewsletterError(emailInput, 'Please enter a valid email');
+      showNewsletterFeedback(feedback, 'Please enter a valid email address.', 'error');
       return;
     }
 
-    // Clear any previous errors
-    emailInput.classList.remove('error');
-    const existingError = emailInput.parentElement.querySelector('.error-message');
-    if (existingError) {
-      existingError.remove();
+    var submitBtn = newsletterForm.querySelector('button[type="submit"]');
+    var originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Subscribing...';
+    feedback.textContent = '';
+    feedback.className = '';
+
+    try {
+      var res = await fetch(WORKER_URL + '/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email }),
+      });
+      var result = await res.json();
+
+      if (result.ok) {
+        showNewsletterFeedback(feedback, 'Check your email to confirm your subscription!', 'success');
+        emailInput.value = '';
+      } else {
+        showNewsletterFeedback(feedback, result.error || 'Something went wrong. Please try again.', 'error');
+      }
+    } catch (err) {
+      showNewsletterFeedback(feedback, 'Network error. Please check your connection and try again.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
     }
-
-    // Show success message
-    const successMessage = document.createElement('div');
-    successMessage.className = 'newsletter-success-message';
-    successMessage.textContent = '✓ Thank you for subscribing!';
-    newsletterForm.appendChild(successMessage);
-
-    emailInput.value = '';
-
-    setTimeout(() => {
-      successMessage.remove();
-    }, 3000);
   });
 }
 
-function showNewsletterError(input, message) {
-  input.classList.add('error');
-
-  const existingError = input.parentElement.querySelector('.error-message');
-  if (existingError) {
-    existingError.remove();
-  }
-
-  const errorElement = document.createElement('div');
-  errorElement.className = 'error-message';
-  errorElement.textContent = message;
-  input.parentElement.appendChild(errorElement);
+function showNewsletterFeedback(el, message, type) {
+  el.textContent = message;
+  el.className = type === 'success' ? 'newsletter-success' : 'newsletter-error';
 }

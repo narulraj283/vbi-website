@@ -599,10 +599,13 @@
       <div class="footer-column">
         <h4>Connect</h4>
         <p style="margin-bottom: var(--space-md); font-size: 0.9rem;">Subscribe to our newsletter for exclusive insights and opportunities.</p>
-        <div class="newsletter-signup">
-          <input type="email" placeholder="Your email address" required>
-          <button type="submit">Subscribe</button>
-        </div>
+        <form class="newsletter-form" novalidate>
+          <div class="newsletter-input-group">
+            <input type="email" name="email" placeholder="Your email address" required aria-label="Email address for newsletter">
+            <button type="submit">Subscribe</button>
+          </div>
+          <div id="newsletter-feedback" role="status" aria-live="polite"></div>
+        </form>
         <div class="social-links">
           <a href="#" title="Facebook" aria-label="Facebook">f</a>
           <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
