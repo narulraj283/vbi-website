@@ -38,7 +38,7 @@ Requirements for site completion. Each maps to roadmap phases.
 
 ### Structured Data
 
-- [ ] **SCHM-01**: Events page has valid schema.org Event JSON-LD markup (name, startDate, location)
+- [x] **SCHM-01**: Events page has valid schema.org Event JSON-LD markup (name, startDate, location)
 - [ ] **SCHM-02**: Podcast hub page has valid schema.org PodcastSeries JSON-LD markup
 - [ ] **SCHM-03**: Each of 101 episode pages has valid schema.org PodcastEpisode JSON-LD markup
 - [ ] **SCHM-04**: Each PodcastEpisode references PodcastSeries via partOfSeries property

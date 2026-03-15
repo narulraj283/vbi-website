@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-03-15)
 
 **Core value:** Deliver A+ quality content that practice owners, veterinarians, and practice managers love — and that industry experts recognize as top-tier
-**Current focus:** Phase 4 — Newsletter Signup Form
+**Current focus:** Phase 8 — Events Structured Data (complete)
 
 ## Current Position
 
-Phase: 4 of 10 (Newsletter Signup Form)
-Plan: 1 of 2 in current phase
-Status: Executing
-Last activity: 2026-03-15 — Plan 04-01 complete (Newsletter Worker + homepage footer form)
+Phase: 8 of 10 (Events Structured Data)
+Plan: 1 of 1 in current phase (complete)
+Status: Phase complete
+Last activity: 2026-03-15 — Plan 08-01 complete (Events JSON-LD structured data)
 
-Progress: [███░░░░░░░] 25%
+Progress: [██████░░░░] 55%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
+- Total plans completed: 6
 - Average duration: ~5 minutes
-- Total execution time: ~27 minutes
+- Total execution time: ~28 minutes
 
 **By Phase:**
 
@@ -31,10 +31,11 @@ Progress: [███░░░░░░░] 25%
 | 2. Contact Form | 1/TBD | ~3 min | ~3 min |
 | 3. Partner Inquiry Form | 1/2 | ~2 min | ~2 min |
 | 4. Newsletter Signup Form | 1/2 | ~2 min | ~2 min |
+| 8. Events Structured Data | 1/1 | ~1 min | ~1 min |
 
 **Recent Trend:**
-- Last 5 plans: Plan 01-02 (~5 min), Plan 02-01 (~3 min), Plan 03-01 (~2 min), Plan 04-01 (~2 min)
-- Trend: Fast (code generation)
+- Last 5 plans: Plan 02-01 (~3 min), Plan 03-01 (~2 min), Plan 04-01 (~2 min), Plan 08-01 (~1 min)
+- Trend: Fast (code generation + structured data)
 
 *Updated after each plan completion*
 
@@ -61,6 +62,8 @@ Recent decisions affecting current work:
 - [Phase 4]: HMAC-SHA256 via Web Crypto for newsletter confirmation tokens (no JWT library)
 - [Phase 4]: Token format base64url(payload).base64url(signature) with 24h expiry
 - [Phase 4]: GET /confirm returns HTML (browser navigation), POST /subscribe returns JSON with CORS
+- [Phase 8]: Plain JSON array of Event objects (each with own @context/@type) for JSON-LD -- no @graph wrapper
+- [Phase 8]: JSON-LD structured data pattern: single script block in head, array of schema.org objects
 
 ### Pending Todos
 
@@ -76,5 +79,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-15
-Stopped at: Completed 04-01-PLAN.md (Newsletter Worker + homepage footer form)
+Stopped at: Completed 08-01-PLAN.md (Events JSON-LD structured data)
 Resume file: None

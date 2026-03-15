@@ -20,7 +20,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 6: Transcription Pipeline** - Build faster-whisper pipeline with VAD, speaker labels, and single-episode validation
 - [ ] **Phase 7: Batch Transcript Injection** - Transcribe all 101 episodes and inject transcripts into episode HTML pages
 - [ ] **Phase 8: Events Structured Data** - Add schema.org Event JSON-LD to events page
-- [ ] **Phase 9: Podcast Structured Data** - Add PodcastSeries and PodcastEpisode JSON-LD to hub and all 101 episode pages
+- [x] **Phase 9: Podcast Structured Data** - Add PodcastSeries and PodcastEpisode JSON-LD to hub and all 101 episode pages
 - [ ] **Phase 10: Assets & Content** - Integrate real partner logos, founder headshot, and social media footer links
 
 ## Phase Details
@@ -122,7 +122,7 @@ Plans:
   3. The events page passes Google Rich Results Test validation with no errors
 **Plans**: 1 plan
 Plans:
-- [ ] 08-01-PLAN.md — Inject schema.org Event JSON-LD for all 7 events
+- [x] 08-01-PLAN.md — Inject schema.org Event JSON-LD for all 7 events
 
 ### Phase 9: Podcast Structured Data
 **Goal**: The podcast hub and all 101 episode pages carry valid schema.org JSON-LD making the VBI podcast eligible for Google podcast rich results
@@ -135,7 +135,7 @@ Plans:
   4. A sample of episode pages passes Google Rich Results Test validation — no errors on tested pages
 **Plans**: 1 plan
 Plans:
-- [ ] 09-01-PLAN.md — Fix hub PodcastSeries type, batch-fix episode JSON-LD (ISO dates, PodcastSeries refs), validate
+- [x] 09-01-PLAN.md — Fix hub PodcastSeries type, batch-fix episode JSON-LD (ISO dates, PodcastSeries refs), validate
 
 ### Phase 10: Assets & Content
 **Goal**: All visible placeholder content is replaced with real assets — partner logos, founder headshot, and working social media links
@@ -162,6 +162,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | 5. Form Security Infrastructure | 0/TBD | Not started | - |
 | 6. Transcription Pipeline | 0/TBD | Not started | - |
 | 7. Batch Transcript Injection | 0/TBD | Not started | - |
-| 8. Events Structured Data | 0/1 | Not started | - |
-| 9. Podcast Structured Data | 0/1 | Not started | - |
+| 8. Events Structured Data | 1/1 | Complete | 2026-03-15 |
+| 9. Podcast Structured Data | 1/1 | Complete | 2026-03-15 |
 | 10. Assets & Content | 0/TBD | Not started | - |
