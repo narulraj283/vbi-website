@@ -4,5 +4,6 @@ compatibility_date = "2026-03-13"
 compatibility_flags = ["nodejs_compat"]
 
 [vars]
-FROM_EMAIL = "partners@narenlife.com"
+FROM_EMAIL = "partners@dermobrain.com"
+TO_EMAIL = "Naren@ekwa.com"
 ALLOWED_ORIGIN = "https://vbi.narenlife.com"

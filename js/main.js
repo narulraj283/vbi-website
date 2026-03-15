@@ -424,7 +424,7 @@ function initFormHandling() {
 }
 
 function initContactForm(form) {
-  var WORKER_URL = 'https://vbi-contact-form.naren-ekwa.workers.dev';
+  var WORKER_URL = 'https://vbi-contact-form.naren-6e3.workers.dev';
   var feedback = document.getElementById('form-feedback');
 
   form.addEventListener('submit', async function(e) {
@@ -479,7 +479,7 @@ function initContactForm(form) {
 }
 
 function initPartnerForm(form) {
-  var PARTNER_WORKER_URL = 'https://vbi-partner-inquiry.naren-ekwa.workers.dev';
+  var PARTNER_WORKER_URL = 'https://vbi-partner-inquiry.naren-6e3.workers.dev';
   var feedback = document.getElementById('partner-form-feedback');
 
   form.addEventListener('submit', async function(e) {
@@ -751,7 +751,7 @@ function initNewsletterForm() {
   var newsletterForm = document.querySelector('.newsletter-form');
   if (!newsletterForm) return;
 
-  var WORKER_URL = 'https://vbi-newsletter.naren-ekwa.workers.dev';
+  var WORKER_URL = 'https://vbi-newsletter.naren-6e3.workers.dev';
   var feedback = document.getElementById('newsletter-feedback');
 
   newsletterForm.addEventListener('submit', async function(e) {
