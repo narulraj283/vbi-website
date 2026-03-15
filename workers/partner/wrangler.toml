@@ -1,0 +1,8 @@
+name = "vbi-partner-inquiry"
+main = "src/index.js"
+compatibility_date = "2026-03-13"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+FROM_EMAIL = "partners@narenlife.com"
+ALLOWED_ORIGIN = "https://vbi.narenlife.com"
