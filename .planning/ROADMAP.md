@@ -35,7 +35,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. The custom domain vbi.narenlife.com continues to serve the site after the push (CNAME not overwritten)
   4. GitHub Pages Settings shows the custom domain with a green "DNS check successful" status
   5. PAT tokens used for deployment have been rotated or revoked
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 01-01-PLAN.md — Fix DNS and push 109 QA-fixed files to GitHub
+- [ ] 01-02-PLAN.md — Enable HTTPS and clean up PAT tokens
 
 ### Phase 2: Contact Form
 **Goal**: Visitors to the contact page can send a message and receive feedback confirming delivery
@@ -135,11 +138,11 @@ Decimal phases appear between their surrounding integers in numeric order.
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Baseline Deployment | 0/TBD | Not started | - |
+| 1. Baseline Deployment | 0/2 | Planning complete | - |
 | 2. Contact Form | 0/TBD | Not started | - |
 | 3. Partner Inquiry Form | 0/TBD | Not started | - |
 | 4. Newsletter Signup Form | 0/TBD | Not started | - |
