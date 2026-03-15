@@ -75,7 +75,10 @@ Plans:
   1. A visitor can enter their email address and submit the newsletter signup form
   2. The subscriber receives a double opt-in confirmation email within seconds of submitting
   3. The signup form provides feedback (success or error) after submission — never silent
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 04-01-PLAN.md — Create newsletter Worker with double opt-in and update homepage footer form
+- [ ] 04-02-PLAN.md — Deploy newsletter Worker, configure Resend audience, and verify end-to-end double opt-in
 
 ### Phase 5: Form Security Infrastructure
 **Goal**: All three form Workers are protected against spam and abuse, with credentials stored securely
@@ -151,7 +154,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
 | 1. Baseline Deployment | 2/2 | Complete | 2026-03-15 |
 | 2. Contact Form | 1/2 | In Progress|  |
 | 3. Partner Inquiry Form | 0/2 | Not started | - |
-| 4. Newsletter Signup Form | 0/TBD | Not started | - |
+| 4. Newsletter Signup Form | 0/2 | Not started | - |
 | 5. Form Security Infrastructure | 0/TBD | Not started | - |
 | 6. Transcription Pipeline | 0/TBD | Not started | - |
 | 7. Batch Transcript Injection | 0/TBD | Not started | - |
